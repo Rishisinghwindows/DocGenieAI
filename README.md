@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="DocGenieAI/Resources/Assets.xcassets/AppIcon.appiconset/icon.png" width="120" alt="DocSage Icon" />
+  <img src="Olea/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png" width="120" alt="Olea Icon" />
 </p>
 
-<h1 align="center">DocSage</h1>
+<h1 align="center">Olea</h1>
 
 <p align="center">
   <strong>Your AI-Powered Document Assistant for iOS</strong>
 </p>
 
 <p align="center">
-  Scan, manage, and transform documents with 27+ built-in tools and on-device AI — no cloud, no third-party APIs, no compromises on privacy.
+  Scan, manage, and transform documents with 29 built-in tools and on-device AI — no cloud, no third-party APIs, no compromises on privacy.
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
   <img src="https://img.shields.io/badge/swift-6.0-orange?style=flat-square" alt="Swift" />
   <img src="https://img.shields.io/badge/UI-SwiftUI-purple?style=flat-square" alt="SwiftUI" />
   <img src="https://img.shields.io/badge/dependencies-zero-brightgreen?style=flat-square" alt="Zero Dependencies" />
-  <img src="https://img.shields.io/badge/tests-945-green?style=flat-square" alt="Tests" />
+  <img src="https://img.shields.io/badge/tests-1163-green?style=flat-square" alt="Tests" />
 </p>
 
 <p align="center">
@@ -34,10 +34,10 @@
 ## At a Glance
 
 ```
-172 Swift source files  |  ~30K lines of code
-945 unit tests          |  0 failures
-27+ document tools      |  5 multi-step pipelines
-9 PDF templates         |  18 domain services
+180 Swift source files  |  ~32K lines of code
+1163 unit tests         |  1153 passing (10 known render-test flakes)
+29 document tools       |  5 multi-step pipelines
+9 PDF templates         |  20 domain services
 Zero third-party deps   |  100% Apple frameworks
 ```
 
@@ -45,7 +45,7 @@ Zero third-party deps   |  100% Apple frameworks
 
 ## Overview
 
-DocSage (internal codename: DocGenieAI) is a native iOS app that puts a complete document workflow in your pocket. From scanning paper documents with your camera to merging, signing, and compressing PDFs, everything runs locally on your device.
+Olea (internal codename: DocGenieAI) is a native iOS app that puts a complete document workflow in your pocket. From scanning paper documents with your camera to merging, signing, and compressing PDFs, everything runs locally on your device.
 
 On iOS 26+, Apple Foundation Models power an AI chat assistant that can reason over your documents, execute multi-step agentic pipelines, and answer questions — all without sending a single byte off-device. On iOS 17-25, a keyword-matching fallback engine ensures core AI features still work.
 
@@ -61,7 +61,7 @@ On iOS 26+, Apple Foundation Models power an AI chat assistant that can reason o
 - 5 built-in pipelines: scan-and-summarize, extract-and-translate, secure-pdf, extract-and-rewrite, extract-and-make-bullets
 - Streaming responses, persistent conversation memory, and contextual tool calling
 - Smart text actions: Formal, Casual, Fix Grammar, Bullet Points, Expand
-- Siri Shortcuts integration ("Scan with DocSage", "Ask DocSage", "Open DocSage")
+- Siri Shortcuts integration ("Scan with Olea", "Ask Olea", "Open Olea")
 
 ### Document Scanner
 
@@ -181,7 +181,7 @@ On iOS 26+, Apple Foundation Models power an AI chat assistant that can reason o
 
 ## Architecture
 
-DocSage follows a layered MVVM architecture with clear separation of concerns:
+Olea follows a layered MVVM architecture with clear separation of concerns:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -242,14 +242,14 @@ For the full architectural breakdown — including data flow diagrams, AI dual-p
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-org/DocGenieAI.git
-cd DocGenieAI
+git clone https://github.com/your-org/Olea.git
+cd Olea
 
 # 2. Generate the Xcode project from project.yml
 xcodegen generate
 
 # 3. Open in Xcode
-open DocGenieAI.xcodeproj
+open Olea.xcodeproj
 
 # 4. Select an iPhone simulator and press Cmd+R
 ```
@@ -260,8 +260,8 @@ Or build from the command line:
 xcodegen generate
 
 xcodebuild build \
-  -project DocGenieAI.xcodeproj \
-  -scheme DocGenieAI \
+  -project Olea.xcodeproj \
+  -scheme Olea \
   -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
 ```
 
@@ -269,11 +269,11 @@ xcodebuild build \
 
 ```bash
 xcodebuild test \
-  -project DocGenieAI.xcodeproj \
-  -scheme DocGenieAI \
+  -project Olea.xcodeproj \
+  -scheme Olea \
   -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
 
-# Expected: 945 tests, 0 failures
+# Expected: 1163 tests, 1153 passing (10 known render-test flakes)
 ```
 
 ---
@@ -281,14 +281,14 @@ xcodebuild test \
 ## Project Structure
 
 ```
-DocGenieAI/
+Olea/
 ├── project.yml                          # XcodeGen project definition
 ├── README.md
 ├── ARCHITECTURE.md
 │
-├── DocGenieAI/                          # Main app target (172 Swift files)
+├── Olea/                                # Main app target (180 Swift files)
 │   ├── App/
-│   │   ├── DocGenieAIApp.swift          # @main, SwiftData container, deep links, Siri intents
+│   │   ├── OleaApp.swift                # @main, SwiftData container, deep links, Siri intents
 │   │   └── Info.plist
 │   │
 │   ├── Core/
@@ -354,16 +354,16 @@ DocGenieAI/
 │       ├── ExpiryNotificationService.swift  # Expiry date reminders
 │       └── ...                          #   Converter, Import, Metadata, Share, etc.
 │
-├── DocSageWidget/                       # WidgetKit extension
-│   ├── DocSageWidget.swift
-│   ├── DocSageWidgetBundle.swift
+├── OleaWidget/                          # WidgetKit extension
+│   ├── OleaWidget.swift
+│   ├── OleaWidgetBundle.swift
 │   └── Info.plist
 │
-├── DocSageShare/                        # Share Extension
+├── OleaShare/                           # Share Extension
 │   ├── ShareViewController.swift
 │   └── Info.plist
 │
-└── DocGenieAITests/                     # 945 unit tests
+└── OleaTests/                           # 1163 unit tests
 ```
 
 ---
@@ -438,5 +438,5 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 
 <p align="center">
   Built entirely with SwiftUI and Apple frameworks.<br/>
-  <strong>DocSage</strong> — Every document, one tap away.
+  <strong>Olea</strong> — Your documents, organized.
 </p>
