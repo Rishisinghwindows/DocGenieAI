@@ -9,6 +9,7 @@ struct SettingsTabView: View {
     @AppStorage("hasCompletedTutorial") private var hasCompletedTutorial = true
     @AppStorage("appAppearance") private var appAppearance: Int = 0
     @AppStorage(LocationService.autoTagDefaultsKey) private var autoTagLocation = false
+    @AppStorage(SpotlightIndexingService.defaultsEnabledKey) private var spotlightIndexingEnabled = true
     @State private var showOnboardingReset = false
     @State private var showTipsReset = false
     @State private var showTerms = false
@@ -103,6 +104,29 @@ struct SettingsTabView: View {
                         .tint(Color.appPrimary)
                         .onChange(of: autoTagLocation) { _, newValue in
                             if newValue { LocationService.shared.requestPermission() }
+                        }
+
+                        Divider().background(Color.appTextMuted.opacity(0.2))
+
+                        Toggle(isOn: $spotlightIndexingEnabled) {
+                            HStack(spacing: AppSpacing.sm) {
+                                Image(systemName: "magnifyingglass.circle.fill")
+                                    .foregroundStyle(Color.appAccent)
+                                    .frame(width: 20)
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("Find in iOS Search")
+                                        .font(.appBody)
+                                        .foregroundStyle(Color.appText)
+                                    Text("Surface your documents in Spotlight, Lock Screen search, and Siri Suggestions. Vault files are never indexed.")
+                                        .font(.appMicro)
+                                        .foregroundStyle(Color.appTextMuted)
+                                        .multilineTextAlignment(.leading)
+                                }
+                            }
+                        }
+                        .tint(Color.appPrimary)
+                        .onChange(of: spotlightIndexingEnabled) { _, newValue in
+                            handleSpotlightToggle(enabled: newValue)
                         }
                     }
 
@@ -256,6 +280,23 @@ struct SettingsTabView: View {
                     .presentationCornerRadius(24)
                     .presentationBackground(.ultraThinMaterial)
             }
+        }
+    }
+
+    // MARK: - Spotlight toggle handler
+
+    /// User flipped "Find in iOS Search". On → rebuild the index from every
+    /// non-vault doc so the user sees results immediately. Off → wipe every
+    /// Olea-owned item out of the system index.
+    private func handleSpotlightToggle(enabled: Bool) {
+        let service = SpotlightIndexingService.shared
+        if enabled {
+            let descriptor = FetchDescriptor<DocumentFile>()
+            if let docs = try? modelContext.fetch(descriptor) {
+                service.bulkReindex(docs)
+            }
+        } else {
+            service.clearAll()
         }
     }
 

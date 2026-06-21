@@ -33,6 +33,7 @@ import SwiftUI
 import SwiftData
 import TipKit
 import AppIntents
+import CoreSpotlight
 
 @main
 struct OleaApp: App {
@@ -82,6 +83,15 @@ struct OleaApp: App {
                 .onOpenURL { url in
                     handleDeepLink(url)
                 }
+                .onContinueUserActivity(CSSearchableItemActionType) { activity in
+                    handleSpotlightTap(activity)
+                }
+                .task {
+                    // First launch after install / schema bump: rebuild the
+                    // Spotlight index in one batch so the user can find their
+                    // existing library from system search immediately.
+                    await runSpotlightBulkIndexIfNeeded()
+                }
                 .task {
                     // Reconcile Live Activities for any docs whose expiry has entered
                     // the user's reminder window since last launch.
@@ -127,6 +137,36 @@ struct OleaApp: App {
             break
         }
     }
+
+    /// User tapped an Olea document in Spotlight / Lock Screen search / Siri
+    /// Suggestions. The activity carries the doc's UUID as its unique
+    /// identifier; we hand that off to the router, which switches to the Files
+    /// tab and lets `FilesTabView` resolve the actual DocumentFile.
+    private func handleSpotlightTap(_ activity: NSUserActivity) {
+        guard let identifier = activity.userInfo?[CSSearchableItemActivityIdentifier] as? String,
+              let uuid = UUID(uuidString: identifier) else { return }
+        NotificationCenter.default.post(
+            name: .oleaOpenDocumentFromSpotlight,
+            object: nil,
+            userInfo: ["id": uuid]
+        )
+    }
+
+    private func runSpotlightBulkIndexIfNeeded() async {
+        let service = SpotlightIndexingService.shared
+        guard service.isEnabled, !service.hasCompletedBulkIndex else { return }
+        let context = ModelContext(SharedModelContainer.shared)
+        let descriptor = FetchDescriptor<DocumentFile>()
+        guard let docs = try? context.fetch(descriptor) else { return }
+        service.bulkReindex(docs)
+    }
+}
+
+extension Notification.Name {
+    /// Fired when iOS hands a Spotlight result back to Olea. `userInfo["id"]`
+    /// is a `UUID`. Observed by `FilesTabView` so it can open the matching
+    /// DocumentFile in the viewer.
+    static let oleaOpenDocumentFromSpotlight = Notification.Name("oleaOpenDocumentFromSpotlight")
 }
 
 // MARK: - Siri App Intents

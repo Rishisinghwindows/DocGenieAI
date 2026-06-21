@@ -49,6 +49,11 @@ final class FileImportService {
                     // AutoInbox: derive AI metadata + embedding once OCR is in.
                     // Runs on MainActor (the enclosing Task) to share the model context.
                     await AutoInboxService.shared.organize(docFile, ocrText: text, modelContext: modelContext)
+
+                    // Surface in Spotlight once we have OCR + AI metadata; this
+                    // is the richest payload so we delay indexing until now
+                    // rather than indexing twice.
+                    SpotlightIndexingService.shared.index(docFile)
                 }
             }
         }

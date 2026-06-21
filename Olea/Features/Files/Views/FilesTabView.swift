@@ -16,6 +16,7 @@ private struct BreathingSymbol: ViewModifier {
 
 struct FilesTabView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(NavigationRouter.self) private var router
     @Query(sort: \DocumentFile.importedAt, order: .reverse) private var allFiles: [DocumentFile]
     @State private var viewModel = FilesViewModel()
     @State private var actionsVM = FileActionsViewModel()
@@ -356,6 +357,14 @@ struct FilesTabView: View {
             .navigationDestination(item: $selectedFile) { file in
                 DocumentViewerRouter(file: file)
             }
+            .onReceive(NotificationCenter.default.publisher(for: .oleaOpenDocumentFromSpotlight)) { note in
+                openFileFromSpotlight(note: note)
+            }
+            .onChange(of: router.pendingFileIDToOpen) { _, newID in
+                guard let newID else { return }
+                openFile(byID: newID)
+                router.pendingFileIDToOpen = nil
+            }
             .sheet(item: $fileToRename) { file in
                 FileRenameSheet(file: file) { newName in
                     do {
@@ -550,6 +559,9 @@ struct FilesTabView: View {
                 file.isInVault = true
                 try? modelContext.save()
             }
+            // Drop from Spotlight — vault is the one surface that must never
+            // leak into system search.
+            SpotlightIndexingService.shared.remove(id: file.id)
             HapticManager.success()
         case .detectContacts:
             // AI contact intelligence — gated.
@@ -559,5 +571,24 @@ struct FilesTabView: View {
                 icon: "person.crop.rectangle.badge.plus"
             ) { fileToDetectContacts = file }
         }
+    }
+
+    // MARK: - Spotlight handoff
+
+    /// Resolve a Spotlight notification (`userInfo["id"] = UUID`) and open
+    /// the matching document. Silently no-ops if the UUID doesn't match any
+    /// current doc (e.g. user deleted it between the Spotlight result being
+    /// shown and the tap landing).
+    private func openFileFromSpotlight(note: Notification) {
+        guard let id = note.userInfo?["id"] as? UUID else { return }
+        openFile(byID: id)
+    }
+
+    private func openFile(byID id: UUID) {
+        guard let match = allFiles.first(where: { $0.id == id }) else { return }
+        // Vault docs are excluded from indexing, but defend in depth — never
+        // bypass the vault auth flow from a Spotlight tap.
+        guard !match.isInVault else { return }
+        selectedFile = match
     }
 }

@@ -73,6 +73,7 @@ struct VaultView: View {
                 VaultFilePickerView { selectedFiles in
                     for file in selectedFiles {
                         file.isInVault = true
+                        SpotlightIndexingService.shared.remove(id: file.id)
                     }
                     try? modelContext.save()
                     if !selectedFiles.isEmpty {
@@ -225,6 +226,10 @@ struct VaultView: View {
                                     file.isInVault = false
                                     try? modelContext.save()
                                 }
+                                // Coming out of the vault — restore the doc to
+                                // Spotlight so the user can find it again from
+                                // system search.
+                                SpotlightIndexingService.shared.index(file)
                                 HapticManager.medium()
                             } label: {
                                 Label("Remove from Vault", systemImage: "lock.open")
