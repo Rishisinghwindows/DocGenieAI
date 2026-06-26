@@ -66,9 +66,12 @@ final class SpotlightIndexingService {
             return
         }
         let item = makeItem(for: doc)
+        // Capture the ID up front so the @Sendable completion closure doesn't
+        // capture the non-Sendable DocumentFile across the actor boundary.
+        let docID = doc.id.uuidString
         CSSearchableIndex.default().indexSearchableItems([item]) { error in
             if let error {
-                AppLogger.ui.error("Spotlight index failed for \(doc.id.uuidString, privacy: .public): \(error.localizedDescription, privacy: .public)")
+                AppLogger.ui.error("Spotlight index failed for \(docID, privacy: .public): \(error.localizedDescription, privacy: .public)")
             }
         }
     }
@@ -94,11 +97,15 @@ final class SpotlightIndexingService {
             .filter { !$0.isInVault }
             .map(makeItem(for:))
         guard !items.isEmpty else { return }
+        // Snapshot the actor-isolated statics into locals so the @Sendable
+        // closure doesn't have to hop back onto the main actor to read them.
+        let schemaVersion = Self.schemaVersion
+        let versionKey = Self.defaultsBulkVersionKey
         CSSearchableIndex.default().indexSearchableItems(items) { error in
             if let error {
                 AppLogger.ui.error("Spotlight bulk reindex failed: \(error.localizedDescription, privacy: .public)")
             } else {
-                UserDefaults.standard.set(Self.schemaVersion, forKey: Self.defaultsBulkVersionKey)
+                UserDefaults.standard.set(schemaVersion, forKey: versionKey)
             }
         }
     }
@@ -106,11 +113,12 @@ final class SpotlightIndexingService {
     /// Wipe every Olea-owned item out of Spotlight. Used when the user turns
     /// indexing off in Settings or to recover from a bad batch.
     func clearAll() {
+        let versionKey = Self.defaultsBulkVersionKey
         CSSearchableIndex.default().deleteSearchableItems(withDomainIdentifiers: [Self.domainIdentifier]) { error in
             if let error {
                 AppLogger.ui.error("Spotlight clearAll failed: \(error.localizedDescription, privacy: .public)")
             } else {
-                UserDefaults.standard.removeObject(forKey: Self.defaultsBulkVersionKey)
+                UserDefaults.standard.removeObject(forKey: versionKey)
             }
         }
     }
@@ -152,7 +160,6 @@ final class SpotlightIndexingService {
         }
 
         attrs.contentCreationDate = doc.originalCreatedAt ?? doc.importedAt
-        attrs.contentModifiedDate = doc.originalModifiedAt ?? doc.importedAt
 
         if let expiry = doc.expiryDate {
             // Spotlight surfaces "expires soon" content higher in Siri Suggestions.
