@@ -68,7 +68,7 @@ struct FileActionsMenu: View {
                     Button {
                         onAction(.setTag(tag))
                     } label: {
-                        Label(tag.rawValue, systemImage: file.tagName == tag.rawValue ? "checkmark.circle.fill" : tag.icon)
+                        Label(tag.localizedName, systemImage: file.tagName == tag.rawValue ? "checkmark.circle.fill" : tag.icon)
                     }
                 }
                 if file.tagName != nil {

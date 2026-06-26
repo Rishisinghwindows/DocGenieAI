@@ -29,7 +29,7 @@ struct ToolCardView: View {
             VStack(spacing: AppSpacing.sm) {
                 iconBlock
 
-                Text(tool.rawValue)
+                Text(tool.localizedName)
                     .font(.appH3)
                     .foregroundStyle(Color.appText)
 
@@ -49,7 +49,7 @@ struct ToolCardView: View {
             .animation(.spring(response: 0.28, dampingFraction: 0.75), value: pressed)
         }
         .buttonStyle(.plain)
-        .accessibilityLabel("\(tool.rawValue), \(tool.description)")
+        .accessibilityLabel("\(tool.localizedName), \(tool.description)")
         .accessibilityHint("Double tap to open tool")
         .simultaneousGesture(
             DragGesture(minimumDistance: 0)

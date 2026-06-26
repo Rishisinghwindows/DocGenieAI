@@ -10,6 +10,12 @@ struct SettingsTabView: View {
     @AppStorage("appAppearance") private var appAppearance: Int = 0
     @AppStorage(LocationService.autoTagDefaultsKey) private var autoTagLocation = false
     @AppStorage(SpotlightIndexingService.defaultsEnabledKey) private var spotlightIndexingEnabled = true
+    /// Persisted user override for the in-app language. Empty string = "follow
+    /// system locale" (we delete AppleLanguages so iOS reverts to the user's
+    /// preferred language order). Otherwise written to `AppleLanguages` so the
+    /// next launch picks up that locale's bundle.
+    @AppStorage("oleaUserLanguageOverride") private var languageOverride: String = ""
+    @State private var showLanguageRestartHint = false
     @State private var showOnboardingReset = false
     @State private var showTipsReset = false
     @State private var showTerms = false
@@ -105,6 +111,12 @@ struct SettingsTabView: View {
                         .onChange(of: autoTagLocation) { _, newValue in
                             if newValue { LocationService.shared.requestPermission() }
                         }
+
+                        Divider().background(Color.appTextMuted.opacity(0.2))
+
+                        Divider().background(Color.appTextMuted.opacity(0.2))
+
+                        languagePickerRow
 
                         Divider().background(Color.appTextMuted.opacity(0.2))
 
@@ -281,6 +293,66 @@ struct SettingsTabView: View {
                     .presentationBackground(.ultraThinMaterial)
             }
         }
+    }
+
+    // MARK: - Language picker
+
+    /// Languages Olea ships translations for. The empty-string sentinel means
+    /// "follow the system locale" — that's what gets stored when the user
+    /// hasn't overridden, and what we surface as the default option.
+    private static let supportedLanguages: [(code: String, label: String)] = [
+        ("",   String(localized: "Follow System")),
+        ("en", "English"),
+        ("es", "Español"),
+        ("fr", "Français"),
+        ("hi", "हिन्दी"),
+        ("ar", "العربية")
+    ]
+
+    @ViewBuilder
+    private var languagePickerRow: some View {
+        HStack(spacing: AppSpacing.sm) {
+            Image(systemName: "globe")
+                .foregroundStyle(Color.appAccent)
+                .frame(width: 20)
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Language")
+                    .font(.appBody)
+                    .foregroundStyle(Color.appText)
+                if showLanguageRestartHint {
+                    Text("Restart Olea to apply the new language.")
+                        .font(.appMicro)
+                        .foregroundStyle(Color.appTextMuted)
+                }
+            }
+            Spacer()
+            Picker("", selection: $languageOverride) {
+                ForEach(Self.supportedLanguages, id: \.code) { lang in
+                    Text(lang.label).tag(lang.code)
+                }
+            }
+            .pickerStyle(.menu)
+            .tint(Color.appPrimary)
+            .onChange(of: languageOverride) { _, newValue in
+                applyLanguageOverride(newValue)
+            }
+        }
+    }
+
+    /// Write the chosen language into `AppleLanguages` so the next process
+    /// launch picks up that locale's resource bundle. We can't swap bundles
+    /// mid-session without a private API, so we show a "restart to apply"
+    /// hint — same behavior Apple's own Settings.app uses for per-app
+    /// language overrides.
+    private func applyLanguageOverride(_ code: String) {
+        let defaults = UserDefaults.standard
+        if code.isEmpty {
+            defaults.removeObject(forKey: "AppleLanguages")
+        } else {
+            defaults.set([code], forKey: "AppleLanguages")
+        }
+        showLanguageRestartHint = true
+        HapticManager.light()
     }
 
     // MARK: - Spotlight toggle handler

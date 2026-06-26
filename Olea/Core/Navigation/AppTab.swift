@@ -9,13 +9,16 @@ enum AppTab: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
+    /// Localized title. Backed by entries in `Localizable.xcstrings` — when
+    /// the system locale doesn't have a translation, the English source string
+    /// (the key itself) is returned, so we never display a missing-key marker.
     var title: String {
         switch self {
-        case .inbox: return "Inbox"
-        case .files: return "Files"
-        case .tools: return "Tools"
-        case .chat: return "Ask"
-        case .settings: return "Settings"
+        case .inbox: return String(localized: "Inbox", comment: "Inbox tab label")
+        case .files: return String(localized: "Files", comment: "Files tab label")
+        case .tools: return String(localized: "Tools", comment: "Tools tab label")
+        case .chat: return String(localized: "Ask", comment: "Chat tab label")
+        case .settings: return String(localized: "Settings", comment: "Settings tab label")
         }
     }
 

@@ -176,7 +176,7 @@ struct FilesTabView: View {
                                     } label: {
                                         HStack(spacing: 4) {
                                             Circle().fill(tag.color).frame(width: 8, height: 8)
-                                            Text(tag.rawValue)
+                                            Text(tag.localizedName)
                                                 .font(.appMicro)
                                         }
                                         .foregroundStyle(viewModel.selectedTag == tag ? .white : Color.appTextMuted)

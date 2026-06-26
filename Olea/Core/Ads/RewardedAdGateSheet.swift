@@ -118,8 +118,17 @@ struct RewardedAdGateSheet: View {
                     } else {
                         Image(systemName: "play.rectangle.fill")
                     }
-                    Text(isShowingAd ? "Loading…" : "Watch ad to use \(toolName)")
-                        .font(.appBody.bold())
+                    // Split the ternary so SwiftUI sees each branch as a
+                    // separate LocalizedStringKey (the ternary collapses to
+                    // String, which would bypass localization).
+                    Group {
+                        if isShowingAd {
+                            Text("Loading…")
+                        } else {
+                            Text("Watch ad to use \(toolName)")
+                        }
+                    }
+                    .font(.appBody.bold())
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 14)

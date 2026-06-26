@@ -4,6 +4,19 @@ options:
   deploymentTarget:
     iOS: "17.0"
   xcodeVersion: "26.0"
+  developmentLanguage: en
+fileGroups:
+  - project.yml
+  - README.md
+# Locales declared for Xcode's resource resolution. `Localizable.xcstrings`
+# under Olea/Resources is the source of truth for string translations.
+knownRegions:
+  - en
+  - es
+  - fr
+  - hi
+  - ar
+  - Base
 packages:
   GoogleMobileAds:
     url: https://github.com/googleads/swift-package-manager-google-mobile-ads.git
@@ -45,6 +58,16 @@ targets:
       properties:
         UILaunchScreen: {}
         CFBundleDisplayName: "Olea"
+        CFBundleDevelopmentRegion: en
+        # Languages bundled with Olea. The actual translations live in
+        # Olea/Resources/Localizable.xcstrings; this key surfaces them in App
+        # Store metadata and in iOS Settings → Olea → Language.
+        CFBundleLocalizations:
+          - en
+          - es
+          - fr
+          - hi
+          - ar
         LSSupportsOpeningDocumentsInPlace: true
         UISupportsDocumentBrowser: true
         NSSupportsLiveActivities: true

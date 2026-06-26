@@ -12,6 +12,20 @@ enum FileTag: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
+    /// Localized display name. `rawValue` stays the canonical English string —
+    /// it's stored in `DocumentFile.tagName` and used as a SwiftData predicate,
+    /// so it must NOT vary by locale.
+    var localizedName: String {
+        switch self {
+        case .work: return String(localized: "Work", comment: "FileTag")
+        case .personal: return String(localized: "Personal", comment: "FileTag")
+        case .invoice: return String(localized: "Invoice", comment: "FileTag")
+        case .receipt: return String(localized: "Receipt", comment: "FileTag")
+        case .legal: return String(localized: "Legal", comment: "FileTag")
+        case .archive: return String(localized: "Archive", comment: "FileTag")
+        }
+    }
+
     var color: Color {
         switch self {
         case .work: return .blue

@@ -22,7 +22,11 @@ struct ToolsTabView: View {
             : ToolItem.allCases.filter { !$0.isAdvanced }
         if searchText.isEmpty { return pool }
         return pool.filter {
+            // Match against both the English canonical name (so users who
+            // think in English can still search e.g. "merge") AND the
+            // localized name (so users see results in their own language).
             $0.rawValue.localizedCaseInsensitiveContains(searchText) ||
+            $0.localizedName.localizedCaseInsensitiveContains(searchText) ||
             $0.description.localizedCaseInsensitiveContains(searchText)
         }
     }
@@ -143,7 +147,7 @@ struct ToolsTabView: View {
             }
             .sheet(item: $gatedTool) { tool in
                 RewardedAdGateSheet(
-                    toolName: tool.rawValue,
+                    toolName: tool.localizedName,
                     toolIcon: tool.systemImage,
                     onUnlock: { unlockGatedTool(tool) },
                     onCancel: { gatedTool = nil }

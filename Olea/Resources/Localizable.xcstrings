@@ -1,0 +1,879 @@
+{
+  "sourceLanguage" : "en",
+  "version" : "1.0",
+  "strings" : {
+    "Add page numbers" : {
+      "comment" : "ToolItem description: pageNumbers",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إضافة أرقام الصفحات" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Añadir números de página" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Ajouter des numéros de page" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "पृष्ठ संख्या जोड़ें" } }
+      }
+    },
+    "Add signature to PDF" : {
+      "comment" : "ToolItem description: signPDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إضافة توقيع إلى PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Añadir firma al PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Ajouter une signature au PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF में हस्ताक्षर जोड़ें" } }
+      }
+    },
+    "Add text watermark" : {
+      "comment" : "ToolItem description: watermark",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إضافة علامة مائية نصية" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Añadir marca de agua de texto" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Ajouter un filigrane texte" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "टेक्स्ट वॉटरमार्क जोड़ें" } }
+      }
+    },
+    "AI Intelligence" : {
+      "comment" : "ToolItem section",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ذكاء اصطناعي" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Inteligencia IA" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Intelligence IA" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "एआई इंटेलिजेंस" } }
+      }
+    },
+    "AI-powered PDF summary" : {
+      "comment" : "ToolItem description: summarizePDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ملخص PDF بالذكاء الاصطناعي" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Resumen de PDF con IA" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Résumé PDF par IA" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "एआई-संचालित पीडीएफ सारांश" } }
+      }
+    },
+    "Archive" : {
+      "comment" : "FileTag",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أرشيف" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Archivo" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Archive" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "संग्रह" } }
+      }
+    },
+    "Ask" : {
+      "comment" : "Chat tab label",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "اسأل" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Preguntar" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Demander" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "पूछें" } }
+      }
+    },
+    "Ask PDF" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "اسأل PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Preguntar al PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Interroger le PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF से पूछें" } }
+      }
+    },
+    "Ask questions about PDF" : {
+      "comment" : "ToolItem description: askPDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "اطرح أسئلة عن ملف PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Haz preguntas sobre el PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Poser des questions sur le PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF के बारे में प्रश्न पूछें" } }
+      }
+    },
+    "Auto-detect & redact sensitive data" : {
+      "comment" : "ToolItem description: redactPDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "اكتشاف وإخفاء البيانات الحساسة تلقائيًا" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Detectar y redactar datos sensibles automáticamente" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Détecter et masquer les données sensibles" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "संवेदनशील डेटा का स्वतः पता लगाएं और छिपाएं" } }
+      }
+    },
+    "Auto-fill any form from your library" : {
+      "comment" : "ToolItem description: formAutofill",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "املأ أي نموذج تلقائيًا من مكتبتك" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Autocompleta cualquier formulario desde tu biblioteca" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Remplir tout formulaire depuis votre bibliothèque" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "अपनी लाइब्रेरी से कोई भी फ़ॉर्म स्वतः भरें" } }
+      }
+    },
+    "Batch Process" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "معالجة دفعية" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Procesar en lote" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Traitement par lot" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "बैच प्रोसेस" } }
+      }
+    },
+    "Cancel" : {
+      "comment" : "Common button",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إلغاء" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Cancelar" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Annuler" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "रद्द करें" } }
+      }
+    },
+    "Combine multiple PDFs" : {
+      "comment" : "ToolItem description: mergePDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "دمج عدة ملفات PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Combinar varios PDFs" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Combiner plusieurs PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "कई PDF संयोजित करें" } }
+      }
+    },
+    "Compare" : {
+      "comment" : "ToolItem section",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "قارن" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Comparar" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Comparer" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "तुलना" } }
+      }
+    },
+    "Compare PDFs" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "مقارنة PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Comparar PDFs" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Comparer les PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF की तुलना करें" } }
+      }
+    },
+    "Compare two documents" : {
+      "comment" : "ToolItem description: comparePDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "مقارنة مستندين" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Comparar dos documentos" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Comparer deux documents" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "दो दस्तावेज़ों की तुलना करें" } }
+      }
+    },
+    "Compress" : {
+      "comment" : "ToolItem display name (compressPDF)",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ضغط" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Comprimir" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Compresser" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "संपीड़ित करें" } }
+      }
+    },
+    "Convert documents to PDF" : {
+      "comment" : "ToolItem description: docToPDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تحويل المستندات إلى PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Convertir documentos a PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Convertir des documents en PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "दस्तावेज़ों को PDF में बदलें" } }
+      }
+    },
+    "Convert handwriting to text" : {
+      "comment" : "ToolItem description: handwriting",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تحويل الكتابة اليدوية إلى نص" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Convertir escritura a mano en texto" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Convertir l'écriture manuscrite en texte" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "हस्तलेखन को टेक्स्ट में बदलें" } }
+      }
+    },
+    "Convert images to PDF" : {
+      "comment" : "ToolItem description: imageToPDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تحويل الصور إلى PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Convertir imágenes a PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Convertir des images en PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "छवियों को PDF में बदलें" } }
+      }
+    },
+    "Convert" : {
+      "comment" : "ToolItem section",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تحويل" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Convertir" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Convertir" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "बदलें" } }
+      }
+    },
+    "Create from template" : {
+      "comment" : "ToolItem description: templates",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إنشاء من قالب" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Crear desde plantilla" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Créer à partir d'un modèle" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "टेम्पलेट से बनाएं" } }
+      }
+    },
+    "Crop PDF" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "اقتصاص PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Recortar PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Rogner le PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF क्रॉप करें" } }
+      }
+    },
+    "Crop PDF page margins" : {
+      "comment" : "ToolItem description: cropPDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "اقتصاص هوامش صفحات PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Recortar márgenes de página PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Rogner les marges des pages PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF पेज मार्जिन क्रॉप करें" } }
+      }
+    },
+    "Delete" : {
+      "comment" : "Common button",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حذف" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Eliminar" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Supprimer" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "हटाएं" } }
+      }
+    },
+    "Doc to PDF" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "مستند إلى PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Documento a PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Doc vers PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "दस्तावेज़ से PDF" } }
+      }
+    },
+    "Done" : {
+      "comment" : "Common button",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تم" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Hecho" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Terminé" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "हो गया" } }
+      }
+    },
+    "Edit" : {
+      "comment" : "ToolItem section",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تحرير" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Editar" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Modifier" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "संपादित करें" } }
+      }
+    },
+    "Edit PDF properties" : {
+      "comment" : "ToolItem description: metadataEditor",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تحرير خصائص PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Editar propiedades del PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Modifier les propriétés PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF गुण संपादित करें" } }
+      }
+    },
+    "Email PDF" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إرسال PDF بالبريد" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Enviar PDF por correo" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Envoyer le PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF ईमेल करें" } }
+      }
+    },
+    "Email PDF as attachment" : {
+      "comment" : "ToolItem description: emailPDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إرسال PDF كمرفق بالبريد الإلكتروني" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Enviar PDF como adjunto" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Envoyer le PDF en pièce jointe" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "अनुलग्नक के रूप में PDF ईमेल करें" } }
+      }
+    },
+    "Enhance" : {
+      "comment" : "ToolItem section",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تحسين" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Mejorar" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Améliorer" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "बेहतर करें" } }
+      }
+    },
+    "Export PDF pages as images" : {
+      "comment" : "ToolItem description: pdfToImage",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تصدير صفحات PDF كصور" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Exportar páginas PDF como imágenes" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Exporter les pages PDF en images" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF पृष्ठों को छवियों के रूप में निर्यात करें" } }
+      }
+    },
+    "Extract Pages" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "استخراج الصفحات" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Extraer páginas" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Extraire les pages" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "पृष्ठ निकालें" } }
+      }
+    },
+    "Extract specific pages" : {
+      "comment" : "ToolItem description: extractPages",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "استخراج صفحات معينة" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Extraer páginas específicas" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Extraire des pages précises" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "विशिष्ट पृष्ठ निकालें" } }
+      }
+    },
+    "Extract text from images" : {
+      "comment" : "ToolItem description: ocrText",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "استخراج النص من الصور" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Extraer texto de imágenes" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Extraire le texte des images" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "छवियों से टेक्स्ट निकालें" } }
+      }
+    },
+    "Extract text from PDF" : {
+      "comment" : "ToolItem description: pdfToText",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "استخراج النص من PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Extraer texto del PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Extraire le texte du PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF से टेक्स्ट निकालें" } }
+      }
+    },
+    "Files" : {
+      "comment" : "Files tab label",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ملفات" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Archivos" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Fichiers" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "फ़ाइलें" } }
+      }
+    },
+    "Find in iOS Search" : {
+      "comment" : "Settings: Spotlight toggle label",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "البحث في iOS" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Buscar en iOS" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Rechercher dans iOS" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "iOS खोज में खोजें" } }
+      }
+    },
+    "Auto-tag Location" : {
+      "comment" : "Settings: Location toggle label",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "وسم الموقع تلقائيًا" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Etiquetar ubicación" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Étiqueter le lieu" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "स्वतः स्थान टैग करें" } }
+      }
+    },
+    "Save where each document was scanned or imported. Off by default." : {
+      "comment" : "Settings: Location toggle description",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "احفظ مكان مسح كل مستند أو استيراده. متوقف افتراضيًا." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Guarda dónde se escaneó o importó cada documento. Desactivado por defecto." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Enregistre où chaque document a été scanné ou importé. Désactivé par défaut." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "हर दस्तावेज़ कहाँ स्कैन या आयात किया गया, सहेजें। डिफ़ॉल्ट रूप से बंद।" } }
+      }
+    },
+    "Surface your documents in Spotlight, Lock Screen search, and Siri Suggestions. Vault files are never indexed." : {
+      "comment" : "Settings: Spotlight toggle description",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إظهار مستنداتك في Spotlight وبحث شاشة القفل واقتراحات Siri. لا تُفهرس ملفات الخزنة أبدًا." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Muestra tus documentos en Spotlight, búsqueda de la pantalla bloqueada y sugerencias de Siri. Los archivos de la bóveda nunca se indexan." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Affichez vos documents dans Spotlight, la recherche d'écran verrouillé et les suggestions Siri. Les fichiers du coffre ne sont jamais indexés." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "अपने दस्तावेज़ों को Spotlight, लॉक स्क्रीन खोज और Siri सुझावों में दिखाएं। वॉल्ट फ़ाइलें कभी अनुक्रमित नहीं होतीं।" } }
+      }
+    },
+    "Handwriting" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "كتابة يدوية" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Escritura a mano" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Écriture manuscrite" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "हस्तलेखन" } }
+      }
+    },
+    "Image to PDF" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "صورة إلى PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Imagen a PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Image vers PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "छवि से PDF" } }
+      }
+    },
+    "Inbox" : {
+      "comment" : "Inbox tab label",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "صندوق الوارد" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Bandeja" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Boîte" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "इनबॉक्स" } }
+      }
+    },
+    "Invoice" : {
+      "comment" : "FileTag",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "فاتورة" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Factura" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Facture" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "इनवॉइस" } }
+      }
+    },
+    "Language" : {
+      "comment" : "Settings: language picker label",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "اللغة" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Idioma" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Langue" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "भाषा" } }
+      }
+    },
+    "Follow System" : {
+      "comment" : "Settings: language picker default option",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "اتباع النظام" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Seguir el sistema" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Suivre le système" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "सिस्टम का अनुसरण करें" } }
+      }
+    },
+    "Restart Olea to apply the new language." : {
+      "comment" : "Settings: language change footer",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أعد تشغيل Olea لتطبيق اللغة الجديدة." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Reinicia Olea para aplicar el nuevo idioma." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Redémarrez Olea pour appliquer la nouvelle langue." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "नई भाषा लागू करने के लिए Olea को पुनः प्रारंभ करें।" } }
+      }
+    },
+    "Legal" : {
+      "comment" : "FileTag",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "قانوني" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Legal" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Juridique" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "कानूनी" } }
+      }
+    },
+    "Lock PDF" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "قفل PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Bloquear PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Verrouiller le PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF लॉक करें" } }
+      }
+    },
+    "Merge PDF" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "دمج PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Combinar PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Fusionner PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF मर्ज करें" } }
+      }
+    },
+    "Not now" : {
+      "comment" : "Gate sheet: dismiss",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ليس الآن" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ahora no" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Plus tard" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "अभी नहीं" } }
+      }
+    },
+    "OCR Text" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "نص OCR" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Texto OCR" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Texte OCR" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "OCR टेक्स्ट" } }
+      }
+    },
+    "Page Numbers" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أرقام الصفحات" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Números de página" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Numéros de page" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "पृष्ठ संख्या" } }
+      }
+    },
+    "Password protect PDF" : {
+      "comment" : "ToolItem description: lockPDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حماية PDF بكلمة مرور" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Proteger PDF con contraseña" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Protéger le PDF par mot de passe" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "पासवर्ड से PDF सुरक्षित करें" } }
+      }
+    },
+    "PDF Metadata" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "بيانات PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Metadatos PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Métadonnées PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF मेटाडेटा" } }
+      }
+    },
+    "PDF to Image" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "PDF إلى صورة" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "PDF a imagen" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "PDF en image" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF से छवि" } }
+      }
+    },
+    "PDF to Text" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "PDF إلى نص" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "PDF a texto" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "PDF en texte" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF से टेक्स्ट" } }
+      }
+    },
+    "Personal" : {
+      "comment" : "FileTag",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "شخصي" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Personal" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Personnel" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "व्यक्तिगत" } }
+      }
+    },
+    "Privacy" : {
+      "comment" : "Settings card title",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الخصوصية" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Privacidad" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Confidentialité" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "गोपनीयता" } }
+      }
+    },
+    "Process multiple PDFs" : {
+      "comment" : "ToolItem description: batchProcess",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "معالجة عدة ملفات PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Procesar varios PDFs" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Traiter plusieurs PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "कई PDF प्रोसेस करें" } }
+      }
+    },
+    "Protect" : {
+      "comment" : "ToolItem section",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حماية" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Proteger" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Protéger" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "सुरक्षित करें" } }
+      }
+    },
+    "QR Share" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "مشاركة QR" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Compartir por QR" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Partage QR" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "QR शेयर" } }
+      }
+    },
+    "Rearrange PDF pages" : {
+      "comment" : "ToolItem description: reorderPDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إعادة ترتيب صفحات PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Reordenar páginas del PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Réorganiser les pages PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF पृष्ठों को पुनर्व्यवस्थित करें" } }
+      }
+    },
+    "Receipt" : {
+      "comment" : "FileTag",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إيصال" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Recibo" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Reçu" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "रसीद" } }
+      }
+    },
+    "Redact PDF" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تنقيح PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Redactar PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Masquer dans le PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF रिडैक्ट करें" } }
+      }
+    },
+    "Reduce PDF file size" : {
+      "comment" : "ToolItem description: compressPDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تقليل حجم ملف PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Reducir el tamaño del PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Réduire la taille du PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF फ़ाइल आकार कम करें" } }
+      }
+    },
+    "Remove PDF password" : {
+      "comment" : "ToolItem description: unlockPDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إزالة كلمة مرور PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Eliminar contraseña del PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Supprimer le mot de passe PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF पासवर्ड हटाएं" } }
+      }
+    },
+    "Reorder Pages" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إعادة ترتيب الصفحات" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Reordenar páginas" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Réorganiser les pages" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "पृष्ठ क्रम बदलें" } }
+      }
+    },
+    "Rotate PDF" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تدوير PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Rotar PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Faire pivoter le PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF घुमाएं" } }
+      }
+    },
+    "Rotate PDF pages" : {
+      "comment" : "ToolItem description: rotatePDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تدوير صفحات PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Rotar páginas del PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Faire pivoter les pages PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF पृष्ठ घुमाएं" } }
+      }
+    },
+    "Save" : {
+      "comment" : "Common button",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حفظ" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Guardar" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Enregistrer" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "सहेजें" } }
+      }
+    },
+    "Scan" : {
+      "comment" : "ToolItem section: scanner",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "مسح" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Escanear" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Scanner" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "स्कैन" } }
+      }
+    },
+    "Scan documents" : {
+      "comment" : "ToolItem description: scanner",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "مسح المستندات" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Escanear documentos" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Scanner des documents" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "दस्तावेज़ स्कैन करें" } }
+      }
+    },
+    "Scanner" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الماسح الضوئي" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Escáner" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Scanner" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "स्कैनर" } }
+      }
+    },
+    "Settings" : {
+      "comment" : "Settings tab label",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الإعدادات" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ajustes" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Réglages" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "सेटिंग्स" } }
+      }
+    },
+    "Share" : {
+      "comment" : "Common button",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "مشاركة" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Compartir" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Partager" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "साझा करें" } }
+      }
+    },
+    "Share & Create" : {
+      "comment" : "ToolItem section",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "مشاركة وإنشاء" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Compartir y crear" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Partager et créer" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "साझा और बनाएं" } }
+      }
+    },
+    "Share via QR code" : {
+      "comment" : "ToolItem description: qrShare",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "مشاركة عبر رمز QR" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Compartir mediante código QR" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Partager via QR code" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "QR कोड से साझा करें" } }
+      }
+    },
+    "Sign PDF" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "توقيع PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Firmar PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Signer le PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF पर हस्ताक्षर करें" } }
+      }
+    },
+    "Smart Form Fill" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ملء ذكي للنماذج" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Relleno inteligente" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Remplissage intelligent" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "स्मार्ट फॉर्म भरें" } }
+      }
+    },
+    "Split PDF" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تقسيم PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Dividir PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Diviser le PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF विभाजित करें" } }
+      }
+    },
+    "Split PDF by pages" : {
+      "comment" : "ToolItem description: splitPDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تقسيم PDF حسب الصفحات" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Dividir PDF por páginas" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Diviser le PDF par pages" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "पृष्ठों के अनुसार PDF विभाजित करें" } }
+      }
+    },
+    "Summarize PDF" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تلخيص PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Resumir PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Résumer le PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF का सारांश" } }
+      }
+    },
+    "Templates" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "قوالب" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Plantillas" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Modèles" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "टेम्पलेट" } }
+      }
+    },
+    "Tools" : {
+      "comment" : "Tools tab label",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أدوات" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Herramientas" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Outils" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "उपकरण" } }
+      }
+    },
+    "Translate PDF" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ترجمة PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Traducir PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Traduire le PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF अनुवाद करें" } }
+      }
+    },
+    "Translate PDF content" : {
+      "comment" : "ToolItem description: translatePDF",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ترجمة محتوى PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Traducir el contenido del PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Traduire le contenu du PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF सामग्री का अनुवाद करें" } }
+      }
+    },
+    "Unlock PDF" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إلغاء قفل PDF" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Desbloquear PDF" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Déverrouiller le PDF" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "PDF अनलॉक करें" } }
+      }
+    },
+    "Watermark" : {
+      "comment" : "ToolItem display name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "علامة مائية" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Marca de agua" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Filigrane" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "वॉटरमार्क" } }
+      }
+    },
+    "Watch ad to use %@" : {
+      "comment" : "Gate sheet CTA. %@ = tool name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "شاهد إعلانًا لاستخدام %@" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ver un anuncio para usar %@" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Regarder une pub pour utiliser %@" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "%@ का उपयोग करने के लिए विज्ञापन देखें" } }
+      }
+    },
+    "Watch a short ad to use %@" : {
+      "comment" : "Gate sheet title. %@ = tool name",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "شاهد إعلانًا قصيرًا لاستخدام %@" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ver un anuncio corto para usar %@" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Regardez une courte pub pour utiliser %@" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "%@ का उपयोग करने के लिए छोटा विज्ञापन देखें" } }
+      }
+    },
+    "Olea is free thanks to short ads. Your first use of every tool is on the house — after that, a quick ad keeps the lights on." : {
+      "comment" : "Gate sheet body copy",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "Olea مجاني بفضل الإعلانات القصيرة. استخدامك الأول لكل أداة على حساب التطبيق — بعد ذلك، إعلان سريع يبقي الأنوار مضاءة." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Olea es gratis gracias a anuncios cortos. Tu primer uso de cada herramienta corre por nuestra cuenta — después, un anuncio rápido mantiene la luz encendida." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Olea est gratuit grâce à de courtes pubs. Votre première utilisation de chaque outil est offerte — ensuite, une pub rapide finance l'app." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "छोटे विज्ञापनों के कारण Olea मुफ़्त है। हर उपकरण का पहला उपयोग मुफ़्त — उसके बाद, एक छोटा विज्ञापन ऐप चलाने में मदद करता है।" } }
+      }
+    },
+    "Work" : {
+      "comment" : "FileTag",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "عمل" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Trabajo" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Travail" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "कार्य" } }
+      }
+    },
+    "About" : {
+      "comment" : "Settings card / row",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حول" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Acerca de" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "À propos" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "परिचय" } }
+      }
+    }
+  }
+}

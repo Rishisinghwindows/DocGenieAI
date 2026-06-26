@@ -184,7 +184,7 @@ struct ChatTabView: View {
             }
             .sheet(item: $coordinator.gatedTool) { tool in
                 RewardedAdGateSheet(
-                    toolName: tool.rawValue,
+                    toolName: tool.localizedName,
                     toolIcon: tool.systemImage,
                     onUnlock: { coordinator.unlockGatedTool(tool) },
                     onCancel: { coordinator.gatedTool = nil }

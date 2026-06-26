@@ -39,6 +39,46 @@ enum ToolItem: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
+    /// Localized display name. Falls back to the English raw value when no
+    /// translation is found, so we never show a missing-key marker. The
+    /// rawValue stays the canonical English string — it's used for storage
+    /// (e.g. ToolItem(rawValue:) round-trips) and search, neither of which
+    /// should be locale-sensitive.
+    var localizedName: String {
+        switch self {
+        case .scanner: return String(localized: "Scanner")
+        case .mergePDF: return String(localized: "Merge PDF")
+        case .splitPDF: return String(localized: "Split PDF")
+        case .compressPDF: return String(localized: "Compress")
+        case .lockPDF: return String(localized: "Lock PDF")
+        case .unlockPDF: return String(localized: "Unlock PDF")
+        case .extractPages: return String(localized: "Extract Pages")
+        case .rotatePDF: return String(localized: "Rotate PDF")
+        case .reorderPDF: return String(localized: "Reorder Pages")
+        case .pageNumbers: return String(localized: "Page Numbers")
+        case .watermark: return String(localized: "Watermark")
+        case .batchProcess: return String(localized: "Batch Process")
+        case .ocrText: return String(localized: "OCR Text")
+        case .comparePDF: return String(localized: "Compare PDFs")
+        case .signPDF: return String(localized: "Sign PDF")
+        case .cropPDF: return String(localized: "Crop PDF")
+        case .metadataEditor: return String(localized: "PDF Metadata")
+        case .redactPDF: return String(localized: "Redact PDF")
+        case .imageToPDF: return String(localized: "Image to PDF")
+        case .docToPDF: return String(localized: "Doc to PDF")
+        case .pdfToImage: return String(localized: "PDF to Image")
+        case .pdfToText: return String(localized: "PDF to Text")
+        case .summarizePDF: return String(localized: "Summarize PDF")
+        case .askPDF: return String(localized: "Ask PDF")
+        case .translatePDF: return String(localized: "Translate PDF")
+        case .handwriting: return String(localized: "Handwriting")
+        case .formAutofill: return String(localized: "Smart Form Fill")
+        case .templates: return String(localized: "Templates")
+        case .emailPDF: return String(localized: "Email PDF")
+        case .qrShare: return String(localized: "QR Share")
+        }
+    }
+
     var systemImage: String {
         switch self {
         case .scanner: return "doc.viewfinder"
@@ -76,36 +116,36 @@ enum ToolItem: String, CaseIterable, Identifiable {
 
     var description: String {
         switch self {
-        case .scanner: return "Scan documents"
-        case .mergePDF: return "Combine multiple PDFs"
-        case .splitPDF: return "Split PDF by pages"
-        case .compressPDF: return "Reduce PDF file size"
-        case .lockPDF: return "Password protect PDF"
-        case .unlockPDF: return "Remove PDF password"
-        case .extractPages: return "Extract specific pages"
-        case .rotatePDF: return "Rotate PDF pages"
-        case .reorderPDF: return "Rearrange PDF pages"
-        case .pageNumbers: return "Add page numbers"
-        case .watermark: return "Add text watermark"
-        case .batchProcess: return "Process multiple PDFs"
-        case .ocrText: return "Extract text from images"
-        case .comparePDF: return "Compare two documents"
-        case .imageToPDF: return "Convert images to PDF"
-        case .docToPDF: return "Convert documents to PDF"
-        case .pdfToImage: return "Export PDF pages as images"
-        case .pdfToText: return "Extract text from PDF"
-        case .signPDF: return "Add signature to PDF"
-        case .cropPDF: return "Crop PDF page margins"
-        case .metadataEditor: return "Edit PDF properties"
-        case .redactPDF: return "Auto-detect & redact sensitive data"
-        case .summarizePDF: return "AI-powered PDF summary"
-        case .askPDF: return "Ask questions about PDF"
-        case .translatePDF: return "Translate PDF content"
-        case .handwriting: return "Convert handwriting to text"
-        case .formAutofill: return "Auto-fill any form from your library"
-        case .templates: return "Create from template"
-        case .emailPDF: return "Email PDF as attachment"
-        case .qrShare: return "Share via QR code"
+        case .scanner: return String(localized: "Scan documents")
+        case .mergePDF: return String(localized: "Combine multiple PDFs")
+        case .splitPDF: return String(localized: "Split PDF by pages")
+        case .compressPDF: return String(localized: "Reduce PDF file size")
+        case .lockPDF: return String(localized: "Password protect PDF")
+        case .unlockPDF: return String(localized: "Remove PDF password")
+        case .extractPages: return String(localized: "Extract specific pages")
+        case .rotatePDF: return String(localized: "Rotate PDF pages")
+        case .reorderPDF: return String(localized: "Rearrange PDF pages")
+        case .pageNumbers: return String(localized: "Add page numbers")
+        case .watermark: return String(localized: "Add text watermark")
+        case .batchProcess: return String(localized: "Process multiple PDFs")
+        case .ocrText: return String(localized: "Extract text from images")
+        case .comparePDF: return String(localized: "Compare two documents")
+        case .imageToPDF: return String(localized: "Convert images to PDF")
+        case .docToPDF: return String(localized: "Convert documents to PDF")
+        case .pdfToImage: return String(localized: "Export PDF pages as images")
+        case .pdfToText: return String(localized: "Extract text from PDF")
+        case .signPDF: return String(localized: "Add signature to PDF")
+        case .cropPDF: return String(localized: "Crop PDF page margins")
+        case .metadataEditor: return String(localized: "Edit PDF properties")
+        case .redactPDF: return String(localized: "Auto-detect & redact sensitive data")
+        case .summarizePDF: return String(localized: "AI-powered PDF summary")
+        case .askPDF: return String(localized: "Ask questions about PDF")
+        case .translatePDF: return String(localized: "Translate PDF content")
+        case .handwriting: return String(localized: "Convert handwriting to text")
+        case .formAutofill: return String(localized: "Auto-fill any form from your library")
+        case .templates: return String(localized: "Create from template")
+        case .emailPDF: return String(localized: "Email PDF as attachment")
+        case .qrShare: return String(localized: "Share via QR code")
         }
     }
 
@@ -123,21 +163,21 @@ enum ToolItem: String, CaseIterable, Identifiable {
     var section: String {
         switch self {
         case .scanner:
-            return "Scan"
+            return String(localized: "Scan", comment: "ToolItem section: scanner")
         case .mergePDF, .splitPDF, .extractPages, .rotatePDF, .reorderPDF, .cropPDF:
-            return "Edit"
+            return String(localized: "Edit", comment: "ToolItem section")
         case .compressPDF, .pageNumbers, .watermark, .signPDF, .metadataEditor:
-            return "Enhance"
+            return String(localized: "Enhance", comment: "ToolItem section")
         case .lockPDF, .unlockPDF, .redactPDF:
-            return "Protect"
+            return String(localized: "Protect", comment: "ToolItem section")
         case .comparePDF, .batchProcess:
-            return "Compare"
+            return String(localized: "Compare", comment: "ToolItem section")
         case .summarizePDF, .askPDF, .translatePDF, .handwriting, .ocrText, .formAutofill:
-            return "AI Intelligence"
+            return String(localized: "AI Intelligence", comment: "ToolItem section")
         case .imageToPDF, .docToPDF, .pdfToImage, .pdfToText:
-            return "Convert"
+            return String(localized: "Convert", comment: "ToolItem section")
         case .templates, .emailPDF, .qrShare:
-            return "Share & Create"
+            return String(localized: "Share & Create", comment: "ToolItem section")
         }
     }
 

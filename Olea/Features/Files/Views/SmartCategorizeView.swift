@@ -187,7 +187,7 @@ private struct SuggestionRow: View {
                         .foregroundStyle(Color.appText)
                         .lineLimit(1)
                     HStack(spacing: AppSpacing.xs) {
-                        Text(suggestion.tag.rawValue)
+                        Text(suggestion.tag.localizedName)
                             .font(.appMicro)
                             .foregroundStyle(suggestion.tag.color)
                         Text("·")
