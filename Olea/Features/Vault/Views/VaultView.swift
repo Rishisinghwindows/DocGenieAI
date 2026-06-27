@@ -152,7 +152,7 @@ struct VaultView: View {
             }
 
             PrimaryButton(
-                title: biometricButtonTitle,
+                title: LocalizedStringKey(biometricButtonTitle),
                 icon: biometricIcon
             ) {
                 Task {

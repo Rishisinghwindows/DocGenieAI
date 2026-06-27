@@ -177,7 +177,7 @@ struct OnboardingView: View {
         .padding(.horizontal, AppSpacing.xl)
     }
 
-    private func bullet(icon: String, title: String, subtitle: String) -> some View {
+    private func bullet(icon: String, title: LocalizedStringKey, subtitle: LocalizedStringKey) -> some View {
         VStack(spacing: 4) {
             Image(systemName: icon)
                 .font(.system(size: 18, weight: .semibold))

@@ -1772,6 +1772,87 @@
         "hi" : { "stringUnit" : { "state" : "translated", "value" : "%1$lld में से %2$lld" } }
       }
     },
+    "Your documents,\nautomatically organized." : {
+      "comment" : "Onboarding hero",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "مستنداتك،\nمنظّمة تلقائيًا." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Tus documentos,\norganizados automáticamente." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Vos documents,\norganisés automatiquement." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "आपके दस्तावेज़,\nस्वचालित रूप से व्यवस्थित।" } }
+      }
+    },
+    "Scan, import, or share a document. Olea names it, tags it, summarizes it — entirely on your device." : {
+      "comment" : "Onboarding sub-headline",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "امسح أو استورد أو شارك مستندًا. يقوم Olea بتسميته ووسمه وتلخيصه — كل ذلك على جهازك." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Escanea, importa o comparte un documento. Olea lo nombra, lo etiqueta y lo resume — todo en tu dispositivo." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Scannez, importez ou partagez un document. Olea le nomme, l'étiquette et le résume — entièrement sur votre appareil." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "एक दस्तावेज़ स्कैन, आयात या साझा करें। Olea इसे नाम देता है, टैग करता है, और सारांशित करता है — पूरी तरह आपके डिवाइस पर।" } }
+      }
+    },
+    "Get started" : {
+      "comment" : "Onboarding CTA",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ابدأ" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Empezar" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Commencer" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "शुरू करें" } }
+      }
+    },
+    "Auto-named" : {
+      "comment" : "Onboarding bullet",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تسمية تلقائية" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Nombrado automático" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Nommage auto" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "स्वतः नाम" } }
+      }
+    },
+    "Smart filenames" : {
+      "comment" : "Onboarding bullet subtitle",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أسماء ملفات ذكية" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Nombres inteligentes" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Noms intelligents" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "स्मार्ट नाम" } }
+      }
+    },
+    "Find anything" : {
+      "comment" : "Onboarding bullet",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ابحث عن أي شيء" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Encuentra todo" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Tout retrouver" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "कुछ भी खोजें" } }
+      }
+    },
+    "By any phrase" : {
+      "comment" : "Onboarding bullet subtitle",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "بأي عبارة" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Con cualquier frase" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Par n'importe quelle phrase" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "किसी भी शब्द से" } }
+      }
+    },
+    "On device" : {
+      "comment" : "Onboarding bullet",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "على جهازك" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "En el dispositivo" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Sur l'appareil" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "डिवाइस पर" } }
+      }
+    },
+    "Stays private" : {
+      "comment" : "Onboarding bullet subtitle",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يبقى خاصًا" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Se mantiene privado" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Reste privé" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "निजी रहता है" } }
+      }
+    },
     "Doc" : {
       "comment" : "FileCategory: word documents",
       "localizations" : {

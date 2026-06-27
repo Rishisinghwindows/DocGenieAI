@@ -1,7 +1,10 @@
 import SwiftUI
 
 struct PrimaryButton: View {
-    let title: String
+    /// LocalizedStringKey so callers' string literals flow through the
+    /// catalog. A plain String would have silently bypassed localization
+    /// for every primary CTA in the app.
+    let title: LocalizedStringKey
     var icon: String? = nil
     var isLoading: Bool = false
     let action: () -> Void
@@ -34,7 +37,7 @@ struct PrimaryButton: View {
         .buttonStyle(.scale)
         .disabled(isLoading)
         .opacity(isLoading ? 0.8 : 1)
-        .accessibilityLabel(title)
+        .accessibilityLabel(Text(title))
         .accessibilityHint(isLoading ? "Loading" : "Double tap to activate")
     }
 }
