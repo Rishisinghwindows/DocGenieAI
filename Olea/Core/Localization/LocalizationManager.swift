@@ -55,8 +55,24 @@ final class LocalizationManager {
     private(set) var currentLanguage: String?
 
     private init() {
-        let stored = UserDefaults.standard.string(forKey: Self.storageKey)
-        currentLanguage = (stored?.isEmpty == false) ? stored : nil
+        let defaults = UserDefaults.standard
+        let stored = defaults.string(forKey: Self.storageKey)
+        if let stored, !stored.isEmpty {
+            // User has previously picked a language — honor it.
+            currentLanguage = stored
+        } else if defaults.object(forKey: Self.storageKey) != nil {
+            // Key exists but is empty — that's the explicit "Follow System"
+            // choice from the picker. Resolve to system locale (nil).
+            currentLanguage = nil
+        } else {
+            // Fresh install: default to English instead of following the
+            // device locale. English is the product's source language and
+            // most users expect it; non-English speakers can flip via
+            // Settings → Language. Persist so the Settings picker shows
+            // "English" selected rather than "Follow System".
+            currentLanguage = "en"
+            defaults.set("en", forKey: Self.storageKey)
+        }
         Bundle.swapMainBundleClassIfNeeded()
         applyToBundle()
     }

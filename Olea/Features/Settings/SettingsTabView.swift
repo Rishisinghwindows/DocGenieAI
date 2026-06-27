@@ -298,13 +298,16 @@ struct SettingsTabView: View {
     /// Languages Olea ships translations for. The empty-string sentinel means
     /// "follow the system locale" — that's what gets stored when the user
     /// hasn't overridden, and what we surface as the default option.
+    // English first — it's the source language and the new-install default.
+    // "Follow System" sits at the end as the opt-in for users who prefer
+    // their device locale to drive the app.
     private static let supportedLanguages: [(code: String, label: String)] = [
-        ("",   oleaLocalized("Follow System")),
         ("en", "English"),
         ("es", "Español"),
         ("fr", "Français"),
         ("hi", "हिन्दी"),
-        ("ar", "العربية")
+        ("ar", "العربية"),
+        ("",   oleaLocalized("Follow System"))
     ]
 
     @ViewBuilder
