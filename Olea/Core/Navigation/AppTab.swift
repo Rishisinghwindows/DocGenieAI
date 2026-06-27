@@ -14,11 +14,11 @@ enum AppTab: String, CaseIterable, Identifiable {
     /// (the key itself) is returned, so we never display a missing-key marker.
     var title: String {
         switch self {
-        case .inbox: return String(localized: "Inbox", comment: "Inbox tab label")
-        case .files: return String(localized: "Files", comment: "Files tab label")
-        case .tools: return String(localized: "Tools", comment: "Tools tab label")
-        case .chat: return String(localized: "Ask", comment: "Chat tab label")
-        case .settings: return String(localized: "Settings", comment: "Settings tab label")
+        case .inbox: return oleaLocalized( "Inbox", comment: "Inbox tab label")
+        case .files: return oleaLocalized( "Files", comment: "Files tab label")
+        case .tools: return oleaLocalized( "Tools", comment: "Tools tab label")
+        case .chat: return oleaLocalized( "Ask", comment: "Chat tab label")
+        case .settings: return oleaLocalized( "Settings", comment: "Settings tab label")
         }
     }
 

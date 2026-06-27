@@ -129,3 +129,17 @@ extension Bundle {
         }
     }
 }
+
+/// Routes a string-key lookup through `Bundle.main.localizedString(...)` —
+/// the swizzled method LocalizationManager installs at startup. Use this
+/// instead of `String(localized:)` for *any* enum/struct computed property
+/// that returns a localized String. `String(localized:)` goes through a
+/// lower-level CFBundle path that ignores the runtime bundle swap, so a
+/// user who flips from Arabic to Hindi keeps seeing Arabic for those
+/// strings until the process restarts.
+///
+/// SwiftUI's `Text("…")` already goes through the swizzled path, so views
+/// that pass string literals directly don't need this helper.
+func oleaLocalized(_ key: String, comment: StaticString = "") -> String {
+    Bundle.main.localizedString(forKey: key, value: key, table: nil)
+}

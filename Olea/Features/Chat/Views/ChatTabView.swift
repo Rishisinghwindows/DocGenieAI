@@ -301,10 +301,10 @@ struct ChatTabView: View {
     private var welcomeGreeting: String {
         let hour = Calendar.current.component(.hour, from: Date())
         switch hour {
-        case 5..<12: return String(localized: "Good morning")
-        case 12..<17: return String(localized: "Good afternoon")
-        case 17..<22: return String(localized: "Good evening")
-        default: return String(localized: "Hello")
+        case 5..<12: return oleaLocalized("Good morning")
+        case 12..<17: return oleaLocalized("Good afternoon")
+        case 17..<22: return oleaLocalized("Good evening")
+        default: return oleaLocalized("Hello")
         }
     }
 

@@ -299,7 +299,7 @@ struct SettingsTabView: View {
     /// "follow the system locale" — that's what gets stored when the user
     /// hasn't overridden, and what we surface as the default option.
     private static let supportedLanguages: [(code: String, label: String)] = [
-        ("",   String(localized: "Follow System")),
+        ("",   oleaLocalized("Follow System")),
         ("en", "English"),
         ("es", "Español"),
         ("fr", "Français"),

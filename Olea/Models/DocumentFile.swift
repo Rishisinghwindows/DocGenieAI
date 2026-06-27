@@ -17,12 +17,12 @@ enum FileTag: String, CaseIterable, Identifiable {
     /// so it must NOT vary by locale.
     var localizedName: String {
         switch self {
-        case .work: return String(localized: "Work", comment: "FileTag")
-        case .personal: return String(localized: "Personal", comment: "FileTag")
-        case .invoice: return String(localized: "Invoice", comment: "FileTag")
-        case .receipt: return String(localized: "Receipt", comment: "FileTag")
-        case .legal: return String(localized: "Legal", comment: "FileTag")
-        case .archive: return String(localized: "Archive", comment: "FileTag")
+        case .work: return oleaLocalized("Work")
+        case .personal: return oleaLocalized("Personal")
+        case .invoice: return oleaLocalized("Invoice")
+        case .receipt: return oleaLocalized("Receipt")
+        case .legal: return oleaLocalized("Legal")
+        case .archive: return oleaLocalized("Archive")
         }
     }
 

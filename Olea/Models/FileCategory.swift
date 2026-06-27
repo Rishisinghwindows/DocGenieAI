@@ -15,9 +15,9 @@ enum FileCategory: String, CaseIterable, Identifiable {
         switch self {
         // "All" needs localization; the format names (PDF/XLS/PPT/TXT/IMG)
         // are universal abbreviations. "Doc" is generic enough to translate.
-        case .all: return String(localized: "All")
+        case .all: return oleaLocalized("All")
         case .pdf: return "PDF"
-        case .doc: return String(localized: "Doc", comment: "FileCategory: word docs")
+        case .doc: return oleaLocalized("Doc")
         case .xls: return "XLS"
         case .ppt: return "PPT"
         case .txt: return "TXT"
