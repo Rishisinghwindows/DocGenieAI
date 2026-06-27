@@ -15,7 +15,7 @@ struct QuickActionsView: View {
                         HStack(spacing: 4) {
                             Image(systemName: action.icon)
                                 .font(.system(size: 11))
-                            Text(action.label)
+                            Text(LocalizedStringKey(action.label))
                                 .font(.appMicro)
                         }
                         .foregroundStyle(Color.appPrimary)

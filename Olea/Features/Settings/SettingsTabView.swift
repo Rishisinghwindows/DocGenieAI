@@ -358,7 +358,11 @@ struct SettingsTabView: View {
 
     // MARK: - Helpers
 
-    private func settingsCard(title: String, icon: String, @ViewBuilder content: () -> some View) -> some View {
+    // Settings card / row helpers take LocalizedStringKey so callers passing
+    // string literals get catalog lookups automatically. Plain-String params
+    // would silently bypass localization — that bug was hiding every
+    // settings section title in English.
+    private func settingsCard(title: LocalizedStringKey, icon: String, @ViewBuilder content: () -> some View) -> some View {
         AppCard(style: .glass) {
             VStack(alignment: .leading, spacing: AppSpacing.sm) {
                 Label(title, systemImage: icon)
@@ -372,7 +376,7 @@ struct SettingsTabView: View {
         .padding(.horizontal, AppSpacing.md)
     }
 
-    private func settingsRow(icon: String, text: String, badge: String?, action: @escaping () -> Void) -> some View {
+    private func settingsRow(icon: String, text: LocalizedStringKey, badge: String?, action: @escaping () -> Void) -> some View {
         Button {
             HapticManager.light()
             action()

@@ -1619,6 +1619,168 @@
         "hi" : { "stringUnit" : { "state" : "translated", "value" : "Olea" } }
       }
     },
+    "Hello" : {
+      "comment" : "Chat greeting fallback",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "مرحبًا" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Hola" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Bonjour" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "नमस्ते" } }
+      }
+    },
+    "Files (%lld)" : {
+      "comment" : "Files tab title with count",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ملفات (%lld)" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Archivos (%lld)" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Fichiers (%lld)" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "फ़ाइलें (%lld)" } }
+      }
+    },
+    "Memories (%lld)" : {
+      "comment" : "Memories list title with count",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الذكريات (%lld)" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Memorias (%lld)" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Mémoires (%lld)" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "मेमोरी (%lld)" } }
+      }
+    },
+    "Search..." : {
+      "comment" : "Default search placeholder",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ابحث..." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Buscar..." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Rechercher..." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "खोजें..." } }
+      }
+    },
+    "Search files..." : {
+      "comment" : "Files tab search placeholder",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ابحث في الملفات..." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Buscar archivos..." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Rechercher des fichiers..." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "फ़ाइलें खोजें..." } }
+      }
+    },
+    "Search tools..." : {
+      "comment" : "Tools tab search placeholder",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ابحث في الأدوات..." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Buscar herramientas..." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Rechercher des outils..." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "उपकरण खोजें..." } }
+      }
+    },
+    "Hide advanced tools" : {
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إخفاء الأدوات المتقدمة" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ocultar herramientas avanzadas" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Masquer les outils avancés" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "उन्नत उपकरण छिपाएं" } }
+      }
+    },
+    "Show %lld advanced tools" : {
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إظهار %lld أداة متقدمة" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Mostrar %lld herramientas avanzadas" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Afficher %lld outils avancés" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "%lld उन्नत उपकरण दिखाएं" } }
+      }
+    },
+    "%lld files" : {
+      "comment" : "Files count label",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "%lld ملفات" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "%lld archivos" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "%lld fichiers" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "%lld फ़ाइलें" } }
+      }
+    },
+    "Sort" : {
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ترتيب" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ordenar" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Trier" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "क्रमबद्ध करें" } }
+      }
+    },
+    "New Chat" : {
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "محادثة جديدة" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Nuevo chat" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Nouveau chat" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "नई चैट" } }
+      }
+    },
+    "Start a fresh conversation anytime by tapping here." : {
+      "comment" : "Tutorial hint",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ابدأ محادثة جديدة في أي وقت بالضغط هنا." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Inicia una conversación nueva en cualquier momento tocando aquí." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Démarrez une nouvelle conversation à tout moment en appuyant ici." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "यहां टैप करके किसी भी समय एक नई बातचीत शुरू करें।" } }
+      }
+    },
+    "Skip" : {
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تخطي" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Omitir" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Passer" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "छोड़ें" } }
+      }
+    },
+    "Next" : {
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "التالي" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Siguiente" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Suivant" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "अगला" } }
+      }
+    },
+    "Back" : {
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "السابق" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Atrás" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Retour" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "वापस" } }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حسنًا" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Aceptar" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "OK" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "ठीक है" } }
+      }
+    },
+    "Get Started" : {
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ابدأ" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Empezar" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Commencer" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "शुरू करें" } }
+      }
+    },
+    "%lld of %lld" : {
+      "comment" : "Tutorial step indicator like '1 of 4'",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "%1$lld من %2$lld" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "%1$lld de %2$lld" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "%1$lld sur %2$lld" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "%1$lld में से %2$lld" } }
+      }
+    },
+    "Doc" : {
+      "comment" : "FileCategory: word documents",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "مستند" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Doc" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Doc" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "दस्तावेज़" } }
+      }
+    },
     "No accounts. Documents stay on your device. Free with ads." : {
       "localizations" : {
         "ar" : { "stringUnit" : { "state" : "translated", "value" : "بدون حسابات. تبقى المستندات على جهازك. مجاني مع إعلانات." } },

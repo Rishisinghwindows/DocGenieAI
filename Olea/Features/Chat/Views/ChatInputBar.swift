@@ -224,7 +224,7 @@ struct ChatInputBar: View {
                                         .font(.appMono)
                                         .fontWeight(.semibold)
                                         .foregroundStyle(Color.appPrimary)
-                                    Text(cmd.label)
+                                    Text(LocalizedStringKey(cmd.label))
                                         .font(.appCaption)
                                         .fontWeight(.medium)
                                         .foregroundStyle(Color.appText)

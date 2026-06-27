@@ -14,7 +14,7 @@ struct ChatActionButtonsView: View {
                     HStack(spacing: AppSpacing.xs) {
                         Image(systemName: action.icon)
                             .font(.system(size: 11, weight: .semibold))
-                        Text(action.label)
+                        Text(LocalizedStringKey(action.label))
                             .font(.appMicro)
                     }
                     .foregroundStyle(Color.appAccent)

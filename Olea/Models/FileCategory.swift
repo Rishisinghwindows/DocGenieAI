@@ -13,9 +13,11 @@ enum FileCategory: String, CaseIterable, Identifiable {
 
     var label: String {
         switch self {
-        case .all: return "All"
+        // "All" needs localization; the format names (PDF/XLS/PPT/TXT/IMG)
+        // are universal abbreviations. "Doc" is generic enough to translate.
+        case .all: return String(localized: "All")
         case .pdf: return "PDF"
-        case .doc: return "Doc"
+        case .doc: return String(localized: "Doc", comment: "FileCategory: word docs")
         case .xls: return "XLS"
         case .ppt: return "PPT"
         case .txt: return "TXT"

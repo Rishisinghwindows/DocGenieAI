@@ -32,10 +32,13 @@ struct ToolsTabView: View {
     }
 
     private var groupedTools: [(String, [ToolItem])] {
+        // Group by the stable English `sectionID` — `section` is localized
+        // and was breaking equality compares against the literal keys here.
+        // The display side reads `tool.section` (already localized).
         let sections = ["Scan", "AI Intelligence", "Edit", "Enhance", "Convert", "Protect", "Compare", "Share & Create"]
-        return sections.compactMap { section in
-            let tools = filteredTools.filter { $0.section == section }
-            return tools.isEmpty ? nil : (section, tools)
+        return sections.compactMap { sectionID in
+            let tools = filteredTools.filter { $0.sectionID == sectionID }
+            return tools.isEmpty ? nil : (sectionID, tools)
         }
     }
 
@@ -98,8 +101,18 @@ struct ToolsTabView: View {
                             } label: {
                                 HStack {
                                     Image(systemName: showAdvanced ? "chevron.up.circle" : "chevron.down.circle")
-                                    Text(showAdvanced ? "Hide advanced tools" : "Show \(hiddenAdvancedCount) advanced tools")
-                                        .font(.appCaption.bold())
+                                    // Branch the ternary so each Text gets a
+                                    // LocalizedStringKey — the unified form
+                                    // collapses to plain String and bypasses
+                                    // the catalog lookup.
+                                    Group {
+                                        if showAdvanced {
+                                            Text("Hide advanced tools")
+                                        } else {
+                                            Text("Show \(hiddenAdvancedCount) advanced tools")
+                                        }
+                                    }
+                                    .font(.appCaption.bold())
                                     Spacer()
                                 }
                                 .foregroundStyle(Color.appPrimary)
@@ -185,7 +198,9 @@ struct ToolsTabView: View {
                         )
                     )
             }
-            Text(section)
+            // `section` is the English sectionID; wrap so the catalog
+            // resolves it to the user's language at render time.
+            Text(LocalizedStringKey(section))
                 .font(.appCaption.bold())
                 .textCase(.uppercase)
                 .tracking(1.1)

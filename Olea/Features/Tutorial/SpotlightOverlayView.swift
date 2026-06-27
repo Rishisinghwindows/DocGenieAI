@@ -80,11 +80,14 @@ struct SpotlightOverlayView: View {
                 )
 
                 VStack(alignment: .leading, spacing: AppSpacing.xs) {
-                    Text(step.title)
+                    // step.title / step.description are plain Strings stored
+                    // on the TutorialStep struct, so wrap with LocalizedStringKey
+                    // to route through the catalog.
+                    Text(LocalizedStringKey(step.title))
                         .font(.appH3)
                         .foregroundStyle(Color.appText)
 
-                    Text(step.description)
+                    Text(LocalizedStringKey(step.description))
                         .font(.appBody)
                         .foregroundStyle(Color.appTextMuted)
                         .fixedSize(horizontal: false, vertical: true)
@@ -97,6 +100,7 @@ struct SpotlightOverlayView: View {
                 Text("\(currentStep + 1) of \(steps.count)")
                     .font(.appCaption)
                     .foregroundStyle(Color.appTextDim)
+                    .environment(\.locale, .current) // ensure %lld formatter follows locale
 
                 Spacer()
 
@@ -124,7 +128,13 @@ struct SpotlightOverlayView: View {
                         }
                     }
                 } label: {
-                    Text(isLastStep ? "Get Started" : "Next")
+                    Group {
+                        if isLastStep {
+                            Text("Get Started")
+                        } else {
+                            Text("Next")
+                        }
+                    }
                         .font(.appH3)
                         .fontWeight(.semibold)
                         .foregroundStyle(.white)

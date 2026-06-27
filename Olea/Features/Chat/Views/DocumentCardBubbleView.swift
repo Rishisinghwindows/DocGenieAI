@@ -81,7 +81,7 @@ struct DocumentCardBubbleView: View {
                                         HStack(spacing: 3) {
                                             Image(systemName: action.icon)
                                                 .font(.system(size: 10))
-                                            Text(action.label)
+                                            Text(LocalizedStringKey(action.label))
                                                 .font(.appMicro)
                                         }
                                         .foregroundStyle(Color.appPrimary)

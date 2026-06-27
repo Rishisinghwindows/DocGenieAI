@@ -34,12 +34,14 @@ struct WelcomeSuggestionCard: View {
 
                 Spacer(minLength: 0)
 
-                Text(action.label)
+                // Wrap in LocalizedStringKey so the catalog lookup runs —
+                // Text(_:) with a plain String parameter would NOT localize.
+                Text(LocalizedStringKey(action.label))
                     .font(.appBody)
                     .fontWeight(.semibold)
                     .foregroundStyle(Color.appText)
 
-                Text(action.prompt)
+                Text(LocalizedStringKey(action.prompt))
                     .font(.appMicro)
                     .foregroundStyle(Color.appTextDim)
                     .lineLimit(2)

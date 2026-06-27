@@ -160,6 +160,23 @@ enum ToolItem: String, CaseIterable, Identifiable {
         }
     }
 
+    /// Stable English identifier used for grouping/filtering — never displayed.
+    /// `localizedSection` is what the UI renders. Splitting these prevents the
+    /// "groupedTools is empty" regression that surfaces when callers compare a
+    /// localized string against an English literal.
+    var sectionID: String {
+        switch self {
+        case .scanner: return "Scan"
+        case .mergePDF, .splitPDF, .extractPages, .rotatePDF, .reorderPDF, .cropPDF: return "Edit"
+        case .compressPDF, .pageNumbers, .watermark, .signPDF, .metadataEditor: return "Enhance"
+        case .lockPDF, .unlockPDF, .redactPDF: return "Protect"
+        case .comparePDF, .batchProcess: return "Compare"
+        case .summarizePDF, .askPDF, .translatePDF, .handwriting, .ocrText, .formAutofill: return "AI Intelligence"
+        case .imageToPDF, .docToPDF, .pdfToImage, .pdfToText: return "Convert"
+        case .templates, .emailPDF, .qrShare: return "Share & Create"
+        }
+    }
+
     var section: String {
         switch self {
         case .scanner:

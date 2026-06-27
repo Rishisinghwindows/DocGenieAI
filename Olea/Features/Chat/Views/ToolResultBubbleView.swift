@@ -151,7 +151,7 @@ struct ToolResultBubbleView: View {
                                     HStack(spacing: AppSpacing.xs) {
                                         Image(systemName: action.icon)
                                             .font(.system(size: 11))
-                                        Text(action.label)
+                                        Text(LocalizedStringKey(action.label))
                                             .font(.appCaption)
                                             .fontWeight(.medium)
                                     }

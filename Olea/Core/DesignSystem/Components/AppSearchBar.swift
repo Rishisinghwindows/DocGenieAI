@@ -2,7 +2,9 @@ import SwiftUI
 
 struct AppSearchBar: View {
     @Binding var text: String
-    var placeholder: String = "Search..."
+    /// LocalizedStringKey (not String) so the placeholder routes through the
+    /// catalog. Callers pass string literals which auto-convert.
+    var placeholder: LocalizedStringKey = "Search..."
 
     var body: some View {
         HStack(spacing: AppSpacing.sm) {
