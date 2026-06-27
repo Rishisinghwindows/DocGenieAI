@@ -38,6 +38,10 @@ import CoreSpotlight
 @main
 struct OleaApp: App {
     @AppStorage("appAppearance") private var appAppearance: Int = 0
+    /// Drives live language switching. Mutating its `currentLanguage` makes
+    /// SwiftUI rebuild the root view (via the `.id(...)` modifier below),
+    /// which re-resolves every localized string against the new bundle.
+    @State private var localization = LocalizationManager.shared
 
     private var colorScheme: ColorScheme? {
         switch appAppearance {
@@ -61,6 +65,16 @@ struct OleaApp: App {
         WindowGroup {
             AppTabView()
                 .preferredColorScheme(colorScheme)
+                // Re-evaluate the whole tree whenever the chosen language
+                // changes. SwiftUI doesn't observe Bundle.main directly, so
+                // we use .id() to discard and rebuild the view hierarchy
+                // against the swizzled bundle. Strings re-resolve on the
+                // very next render frame.
+                .id(localization.currentLanguage ?? "system")
+                // Also bind the SwiftUI locale env so date/number formatters
+                // and any locale-sensitive system UI (alert buttons, share
+                // sheet, etc.) match.
+                .environment(\.locale, Locale(identifier: localization.currentLanguage ?? Locale.current.identifier))
                 .task {
                     // NOTE: on iOS 26 + the current SwiftData container, TipKit's
                     // SwiftData-backed datastore posts notifications that fire the

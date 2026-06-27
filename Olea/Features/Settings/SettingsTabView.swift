@@ -11,11 +11,9 @@ struct SettingsTabView: View {
     @AppStorage(LocationService.autoTagDefaultsKey) private var autoTagLocation = false
     @AppStorage(SpotlightIndexingService.defaultsEnabledKey) private var spotlightIndexingEnabled = true
     /// Persisted user override for the in-app language. Empty string = "follow
-    /// system locale" (we delete AppleLanguages so iOS reverts to the user's
-    /// preferred language order). Otherwise written to `AppleLanguages` so the
-    /// next launch picks up that locale's bundle.
+    /// system locale". The actual bundle swap is done by `LocalizationManager`
+    /// so the UI updates live without a process restart.
     @AppStorage("oleaUserLanguageOverride") private var languageOverride: String = ""
-    @State private var showLanguageRestartHint = false
     @State private var showOnboardingReset = false
     @State private var showTipsReset = false
     @State private var showTerms = false
@@ -82,6 +80,12 @@ struct SettingsTabView: View {
                         .pickerStyle(.segmented)
                     }
 
+                    // Language — placed next to Appearance because both are
+                    // global UI preferences users expect to find together.
+                    settingsCard(title: "Language", icon: "globe") {
+                        languagePickerRow
+                    }
+
                     // Secure Vault
                     settingsCard(title: "Security", icon: "lock.shield") {
                         settingsRow(icon: "lock.shield.fill", text: "Secure Vault", badge: vaultFiles.isEmpty ? nil : "\(vaultFiles.count)") {
@@ -111,12 +115,6 @@ struct SettingsTabView: View {
                         .onChange(of: autoTagLocation) { _, newValue in
                             if newValue { LocationService.shared.requestPermission() }
                         }
-
-                        Divider().background(Color.appTextMuted.opacity(0.2))
-
-                        Divider().background(Color.appTextMuted.opacity(0.2))
-
-                        languagePickerRow
 
                         Divider().background(Color.appTextMuted.opacity(0.2))
 
@@ -315,16 +313,9 @@ struct SettingsTabView: View {
             Image(systemName: "globe")
                 .foregroundStyle(Color.appAccent)
                 .frame(width: 20)
-            VStack(alignment: .leading, spacing: 2) {
-                Text("Language")
-                    .font(.appBody)
-                    .foregroundStyle(Color.appText)
-                if showLanguageRestartHint {
-                    Text("Restart Olea to apply the new language.")
-                        .font(.appMicro)
-                        .foregroundStyle(Color.appTextMuted)
-                }
-            }
+            Text("Language")
+                .font(.appBody)
+                .foregroundStyle(Color.appText)
             Spacer()
             Picker("", selection: $languageOverride) {
                 ForEach(Self.supportedLanguages, id: \.code) { lang in
@@ -339,19 +330,12 @@ struct SettingsTabView: View {
         }
     }
 
-    /// Write the chosen language into `AppleLanguages` so the next process
-    /// launch picks up that locale's resource bundle. We can't swap bundles
-    /// mid-session without a private API, so we show a "restart to apply"
-    /// hint — same behavior Apple's own Settings.app uses for per-app
-    /// language overrides.
+    /// Swap the live language via `LocalizationManager`. The manager mutates
+    /// an @Observable property, which combined with the `.id(...)` modifier
+    /// on the root view in OleaApp.swift forces SwiftUI to rebuild the whole
+    /// tree against the newly-resolved strings — no process restart needed.
     private func applyLanguageOverride(_ code: String) {
-        let defaults = UserDefaults.standard
-        if code.isEmpty {
-            defaults.removeObject(forKey: "AppleLanguages")
-        } else {
-            defaults.set([code], forKey: "AppleLanguages")
-        }
-        showLanguageRestartHint = true
+        LocalizationManager.shared.setLanguage(code)
         HapticManager.light()
     }
 
