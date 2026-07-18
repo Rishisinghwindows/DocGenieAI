@@ -7,21 +7,30 @@
     <key>CFBundleName</key>
     <string>$(PRODUCT_NAME)</string>
     <key>CFBundleDisplayName</key>
-    <string>Save to DocSage</string>
+    <string>Save to Olea</string>
     <key>CFBundleIdentifier</key>
     <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
     <key>CFBundleVersion</key>
-    <string>1</string>
+    <string>2</string>
     <key>CFBundleShortVersionString</key>
     <string>1.0</string>
     <key>CFBundlePackageType</key>
     <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
     <key>NSExtension</key>
     <dict>
+        <!--
+          Replaced TRUEPREDICATE with per-count attachment caps for the
+          document types Olea actually accepts. App Review explicitly
+          rejects TRUEPREDICATE and the previous share sheet was showing
+          Olea for every possible payload — including URLs and text — which
+          is a bad user experience.
+        -->
         <key>NSExtensionAttributes</key>
         <dict>
-            <key>NSExtensionActivationRule</key>
-            <string>TRUEPREDICATE</string>
+            <key>NSExtensionActivationSupportsFileWithMaxCount</key>
+            <integer>10</integer>
+            <key>NSExtensionActivationSupportsImageWithMaxCount</key>
+            <integer>10</integer>
         </dict>
         <key>NSExtensionPointIdentifier</key>
         <string>com.apple.share-services</string>
