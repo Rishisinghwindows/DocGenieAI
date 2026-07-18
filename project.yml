@@ -35,7 +35,7 @@ settings:
     # CFBundleVersion — App Store Connect requires this to be unique per
     # upload for the same MARKETING_VERSION, so bump it for every TF push.
     MARKETING_VERSION: "1.0"
-    CURRENT_PROJECT_VERSION: "2"
+    CURRENT_PROJECT_VERSION: "3"
     INFOPLIST_KEY_UILaunchScreen_Generation: "YES"
     INFOPLIST_KEY_UISupportedInterfaceOrientations: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
     INFOPLIST_KEY_CFBundleDisplayName: "Olea"
@@ -78,6 +78,15 @@ targets:
           - ar
         LSSupportsOpeningDocumentsInPlace: true
         UISupportsDocumentBrowser: true
+        # Register olea:// and docsage:// URL schemes so iOS routes
+        # matching URLs to our onOpenURL handler. docsage:// is kept
+        # for backward compat with Siri Shortcuts users may have
+        # already recorded before the rebrand.
+        CFBundleURLTypes:
+          - CFBundleURLName: "com.olea.iosapp.deeplink"
+            CFBundleURLSchemes:
+              - olea
+              - docsage
         NSSupportsLiveActivities: true
         NSSupportsLiveActivitiesFrequentUpdates: true
         NSUserTrackingUsageDescription: "Your data will be used to deliver personalized ads to you. You can change this anytime in Settings."

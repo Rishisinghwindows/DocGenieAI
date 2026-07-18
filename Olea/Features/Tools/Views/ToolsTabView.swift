@@ -136,6 +136,13 @@ struct ToolsTabView: View {
                 }
             }
             .navigationTitle("Tools")
+            // Deep-link entry: OleaApp posts .oleaOpenScanner when the
+            // docsage://scan URL fires (typically from the "Scan with Olea"
+            // Siri Shortcut). AppTabView has already switched to this tab
+            // by the time this arrives.
+            .onReceive(NotificationCenter.default.publisher(for: .oleaOpenScanner)) { _ in
+                showScanner = true
+            }
             .fullScreenCover(isPresented: $showScanner) {
                 DocumentCameraView(
                     onScanComplete: { images in

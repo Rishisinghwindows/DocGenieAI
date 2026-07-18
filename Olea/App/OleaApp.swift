@@ -140,16 +140,18 @@ struct OleaApp: App {
         .modelContainer(SharedModelContainer.shared)
     }
 
+    /// Handles Siri Shortcut deep links (docsage:// scheme, kept for backward
+    /// compat with the old bundle ID). Posts a Notification the AppTabView
+    /// observes to switch tabs / open sheets — same hand-off pattern we use
+    /// for Spotlight taps, so both entry points converge on one code path.
     private func handleDeepLink(_ url: URL) {
-        guard url.scheme == "docsage" else { return }
-        // Handle: docsage://scan, docsage://chat, docsage://tools
-        switch url.host {
-        case "scan", "chat", "tools":
-            // Deep link handling — NavigationRouter picks up via environment
-            break
-        default:
-            break
-        }
+        guard url.scheme == "docsage" || url.scheme == "olea" else { return }
+        guard let host = url.host else { return }
+        NotificationCenter.default.post(
+            name: .oleaDeepLink,
+            object: nil,
+            userInfo: ["host": host]
+        )
     }
 
     /// User tapped an Olea document in Spotlight / Lock Screen search / Siri
@@ -181,6 +183,18 @@ extension Notification.Name {
     /// is a `UUID`. Observed by `FilesTabView` so it can open the matching
     /// DocumentFile in the viewer.
     static let oleaOpenDocumentFromSpotlight = Notification.Name("oleaOpenDocumentFromSpotlight")
+
+    /// Fired for docsage:// or olea:// URL taps (Siri Shortcuts, App
+    /// Intents, custom widgets). `userInfo["host"]` is the URL host —
+    /// currently one of "scan", "chat", "tools", "files", "settings",
+    /// "inbox". Observed by AppTabView which routes via NavigationRouter.
+    static let oleaDeepLink = Notification.Name("oleaDeepLink")
+
+    /// Fired when a deep link asks for the scanner. Observed by
+    /// ToolsTabView, which owns the fullScreenCover(showScanner:).
+    /// We can't just set a router flag because the scanner presentation
+    /// state is view-local, not router-owned.
+    static let oleaOpenScanner = Notification.Name("oleaOpenScanner")
 }
 
 // MARK: - Siri App Intents

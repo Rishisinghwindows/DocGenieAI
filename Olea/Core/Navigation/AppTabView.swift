@@ -126,6 +126,26 @@ struct AppTabView: View {
         }
         .tint(Color.appPrimary)
         .environment(router)
+        // Deep-link entry point. OleaApp posts .oleaDeepLink whenever the
+        // system opens a docsage:// or olea:// URL; we translate the host
+        // to a tab switch here. Scanner is a special case because its
+        // fullScreenCover lives inside ToolsTabView — we relay via a
+        // second notification (.oleaOpenScanner).
+        .onReceive(NotificationCenter.default.publisher(for: .oleaDeepLink)) { note in
+            guard let host = note.userInfo?["host"] as? String else { return }
+            HapticManager.selection()
+            switch host {
+            case "scan":
+                router.selectedTab = .tools
+                NotificationCenter.default.post(name: .oleaOpenScanner, object: nil)
+            case "tools":   router.selectedTab = .tools
+            case "chat":    router.selectedTab = .chat
+            case "files":   router.selectedTab = .files
+            case "inbox":   router.selectedTab = .inbox
+            case "settings": router.selectedTab = .settings
+            default: break
+            }
+        }
     }
 
     private var splashOverlay: some View {

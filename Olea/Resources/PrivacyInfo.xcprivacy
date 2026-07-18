@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Privacy manifest for Olea. Required by Apple for all iOS 17+ app
+  submissions since May 2024. Declares (a) required-reason API usage,
+  (b) whether the app tracks users, and (c) any tracking domains.
+
+  Olea itself does NOT collect any data — everything runs on-device,
+  no accounts, no analytics beyond MetricKit crash reports (which are
+  device-scoped, not tied to the user). The only tracking surface is
+  AdMob for personalized ads; users can opt out via ATT and via the
+  UMP consent flow. AdMob's own SDK bundles a nested PrivacyInfo that
+  App Store Connect aggregates with this one.
+
+  Required-reason API declarations follow Apple's list from WWDC24
+  session 10229 ("Get started with privacy manifests"). Reason codes
+  come from https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api
+-->
+<plist version="1.0">
+<dict>
+    <!--
+      NSPrivacyTracking = true because the AdMob SDK correlates device
+      identifiers with third-party ad networks when the user has granted
+      ATT. If a user denies ATT, no linking happens (SDK respects the
+      status), but at the manifest level we still declare true.
+    -->
+    <key>NSPrivacyTracking</key>
+    <true/>
+
+    <!--
+      Domains the app contacts that are used for cross-app tracking.
+      These are AdMob's core ad-serving and measurement endpoints; if
+      you disable AdMob (AdsConfig.isEnabled = false) you can safely
+      drop this array.
+    -->
+    <key>NSPrivacyTrackingDomains</key>
+    <array>
+        <string>googleads.g.doubleclick.net</string>
+        <string>pagead2.googlesyndication.com</string>
+        <string>googlesyndication.com</string>
+        <string>google-analytics.com</string>
+        <string>app-measurement.com</string>
+    </array>
+
+    <!--
+      Data collected by the app itself. Olea's design principle is
+      "everything on device," so the only entries here are (1) device
+      ID collected by AdMob for personalized ads, and (2) approximate
+      location IF the user opts into auto-tagging (Settings → Privacy
+      → Auto-tag Location, off by default). If either is disabled at
+      runtime, the collection does not occur.
+    -->
+    <key>NSPrivacyCollectedDataTypes</key>
+    <array>
+        <dict>
+            <key>NSPrivacyCollectedDataType</key>
+            <string>NSPrivacyCollectedDataTypeDeviceID</string>
+            <key>NSPrivacyCollectedDataTypeLinked</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypeTracking</key>
+            <true/>
+            <key>NSPrivacyCollectedDataTypePurposes</key>
+            <array>
+                <string>NSPrivacyCollectedDataTypePurposeThirdPartyAdvertising</string>
+            </array>
+        </dict>
+        <dict>
+            <key>NSPrivacyCollectedDataType</key>
+            <string>NSPrivacyCollectedDataTypeCoarseLocation</string>
+            <key>NSPrivacyCollectedDataTypeLinked</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypeTracking</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypePurposes</key>
+            <array>
+                <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+            </array>
+        </dict>
+        <dict>
+            <key>NSPrivacyCollectedDataType</key>
+            <string>NSPrivacyCollectedDataTypeCrashData</string>
+            <key>NSPrivacyCollectedDataTypeLinked</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypeTracking</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypePurposes</key>
+            <array>
+                <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+            </array>
+        </dict>
+    </array>
+
+    <!--
+      Required-reason API declarations. Each entry names an Apple API
+      Olea uses and the specific approved reason. Missing declarations
+      trigger App Store submission warnings, and Apple may reject
+      submissions that use these APIs without a reason.
+    -->
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array>
+        <!-- File timestamps: we read attributesOfItem, contentModificationDate,
+             etc. in FileMetadataService + FileStorageService to display
+             import/modification times to the user. Reason C617.1: "Files
+             provided to app by user or user's contacts". -->
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key>
+            <array>
+                <string>C617.1</string>
+            </array>
+        </dict>
+
+        <!-- UserDefaults: language override, appearance, ad frequency
+             counters, feature-gate usage counts, etc. Reason CA92.1:
+             "app functionality related to user's own preferences". -->
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key>
+            <array>
+                <string>CA92.1</string>
+            </array>
+        </dict>
+
+        <!-- Disk space: Settings surface a storageUsed string computed from
+             attributesOfItem on the app's own Documents folder. Reason
+             E174.1: "app functionality to display available or remaining
+             storage to the user". -->
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPICategoryDiskSpace</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key>
+            <array>
+                <string>E174.1</string>
+            </array>
+        </dict>
+
+        <!-- System boot time: MetricKit / CrashReporter reads this so
+             the payload includes a device-relative launch timestamp.
+             Reason 35F9.1: "measure time of events within the app". -->
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPICategorySystemBootTime</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key>
+            <array>
+                <string>35F9.1</string>
+            </array>
+        </dict>
+    </array>
+</dict>
+</plist>
