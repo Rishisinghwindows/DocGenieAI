@@ -77,18 +77,18 @@ struct ToolsTabView: View {
                                 sectionHeader(section)
 
                                 LazyVGrid(columns: columns, spacing: AppSpacing.md) {
-                                    ForEach(Array(tools.enumerated()), id: \.element.id) { index, tool in
+                                    ForEach(Array(tools.enumerated()), id: \.element.id) { _, tool in
                                         ToolCardView(tool: tool) {
                                             handleToolTap(tool)
-                                        }
-                                        .scrollTransition(.interactive.threshold(.visible(0.3))) { content, phase in
-                                            content
-                                                .opacity(1 - abs(phase.value) * 0.25)
-                                                .scaleEffect(1 - abs(phase.value) * 0.03)
                                         }
                                     }
                                 }
                                 .padding(.horizontal, AppSpacing.md)
+                                // Removed .scrollTransition on each card — with
+                                // ~24 cards the per-frame opacity + scale
+                                // recompute during scroll made the whole tab
+                                // stutter on device. The cosmetic fade-in wasn't
+                                // worth the 60Hz redraw cost.
                             }
                         }
 

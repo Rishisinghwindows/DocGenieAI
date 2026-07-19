@@ -55,7 +55,10 @@ private struct ModernMesh: View {
     let colors: [Color]
 
     var body: some View {
-        TimelineView(.animation(minimumInterval: 1.0 / 30.0)) { context in
+        // 15fps is plenty for a blurred ambient background — halving the
+        // frame rate from the original 30fps freed enough CPU for the Tools
+        // tab's ScrollView to run at 60Hz on device without stutter.
+        TimelineView(.animation(minimumInterval: 1.0 / 15.0)) { context in
             let t = context.date.timeIntervalSinceReferenceDate
             MeshGradient(
                 width: 3,
@@ -64,6 +67,11 @@ private struct ModernMesh: View {
                 colors: tile(colors: colors)
             )
         }
+        // .drawingGroup() flattens the mesh into a Metal-backed offscreen
+        // texture. Without it, SwiftUI re-diffs the mesh's view tree every
+        // frame; with it, the timeline just swaps textures. Big win on
+        // screens where the mesh sits behind an interactive ScrollView.
+        .drawingGroup()
     }
 
     private func points(at t: TimeInterval) -> [SIMD2<Float>] {
