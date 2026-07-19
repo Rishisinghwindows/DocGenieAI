@@ -14,8 +14,6 @@ struct ToolCardView: View {
     let tool: ToolItem
     let action: () -> Void
 
-    @State private var pressed: Bool = false
-
     /// AI Intelligence tools get the iridescent rim + animated icon.
     private var isAITool: Bool {
         tool.section == "AI Intelligence"
@@ -45,17 +43,17 @@ struct ToolCardView: View {
             .background(Color.appBGCard.opacity(0.45), in: RoundedRectangle(cornerRadius: AppCornerRadius.lg))
             .modifier(AICardRimIfNeeded(isAI: isAITool))
             .hairline(cornerRadius: AppCornerRadius.lg, opacity: isAITool ? 0 : 0.45)
-            .scaleEffect(pressed ? 0.97 : 1.0)
-            .animation(.spring(response: 0.28, dampingFraction: 0.75), value: pressed)
         }
-        .buttonStyle(.plain)
+        // Press-scale effect via ButtonStyle instead of a per-card
+        // DragGesture(minimumDistance: 0). The old approach installed 24
+        // simultaneous drag recognizers that immediately claimed any touch,
+        // so the enclosing ScrollView had to fight them for every swipe —
+        // that's what was making the Tools tab feel unscrollable. A
+        // ButtonStyle uses the shared UIKit gesture pipeline which yields
+        // to scroll gestures on drag, restoring normal scroll behavior.
+        .buttonStyle(ToolCardPressStyle())
         .accessibilityLabel("\(tool.localizedName), \(tool.description)")
         .accessibilityHint("Double tap to open tool")
-        .simultaneousGesture(
-            DragGesture(minimumDistance: 0)
-                .onChanged { _ in pressed = true }
-                .onEnded { _ in pressed = false }
-        )
     }
 
     // MARK: - Icon block
@@ -122,5 +120,15 @@ private struct AISymbolPulseIfNeeded: ViewModifier {
         } else {
             content
         }
+    }
+}
+
+/// Button style that scales the label when pressed. Replaces the
+/// per-card DragGesture pattern that was hijacking scroll gestures.
+private struct ToolCardPressStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.97 : 1.0)
+            .animation(.spring(response: 0.28, dampingFraction: 0.75), value: configuration.isPressed)
     }
 }
