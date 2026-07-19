@@ -124,6 +124,11 @@ struct OleaApp: App {
                         .first?.windows.first(where: \.isKeyWindow)?.rootViewController {
                         await AdConsentManager.shared.requestConsentIfNeeded(from: root)
                     }
+                    // Wake up any AdBannerView that rendered before UMP/ATT
+                    // finished — otherwise banners never appear on first
+                    // launch because their initial `shouldShowAds` read
+                    // returned false while consent was still pending.
+                    AdsCoordinator.shared.notifyConsentResolved()
                     AdsCoordinator.shared.onAppLaunched()
                 }
                 .onChange(of: scenePhase) { _, newPhase in

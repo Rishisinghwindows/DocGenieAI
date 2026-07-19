@@ -46,6 +46,20 @@ final class AdsCoordinator: NSObject, ObservableObject {
     /// no-op while true. Wire from your existing UsageManager / StoreKit flow.
     @Published var isProUser: Bool = false
 
+    /// Bumped whenever a state change happens that might flip `shouldShowAds`
+    /// — most importantly when the UMP / ATT consent flow finishes. Views
+    /// observe this via `@ObservedObject` and re-evaluate `shouldShowAds`.
+    /// Without this, AdBannerView renders once (usually before UMP has
+    /// resolved), sees `shouldShowAds == false`, and returns EmptyView
+    /// forever — no banner is ever shown even after consent is granted.
+    @Published private(set) var stateRevision: Int = 0
+
+    /// Call after `AdConsentManager.requestConsentIfNeeded` completes so any
+    /// AdBannerView instances re-render and finally attempt a banner load.
+    func notifyConsentResolved() {
+        stateRevision &+= 1
+    }
+
     // MARK: - Internal state
 
     private var appOpenAd: GADAppOpenAd?

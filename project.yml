@@ -53,12 +53,11 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.olea.iosapp
-        INFOPLIST_KEY_NSDocumentsFolderUsageDescription: "Olea needs access to your documents to import and manage files."
-        INFOPLIST_KEY_NSPhotoLibraryUsageDescription: "Olea can import images from your photo library."
-        INFOPLIST_KEY_NSCameraUsageDescription: "Olea uses the camera to scan documents."
-        INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: "Olea uses your location to automatically tag documents with where they were scanned or imported."
-        INFOPLIST_KEY_NSContactsUsageDescription: "Olea matches contact information found in your documents against your address book so you can quickly link documents to the right person."
-        INFOPLIST_KEY_NSUserTrackingUsageDescription: "Your data will be used to deliver personalized ads to you. You can change this anytime in Settings."
+        # NOTE: INFOPLIST_KEY_NS* build settings are ONLY merged into
+        # Info.plist when GENERATE_INFOPLIST_FILE=YES. We ship a manual
+        # Info.plist (info.path below), so the real usage descriptions
+        # live in the info.properties block. Kept these here as reference
+        # comments in case we ever move to auto-generated plists.
     info:
       path: Olea/App/Info.plist
       properties:
@@ -76,6 +75,19 @@ targets:
           - fr
           - hi
           - ar
+        # Privacy usage descriptions. Without these, iOS's TCC daemon
+        # SIGKILLs the process the instant it attempts to access the
+        # corresponding privacy-sensitive API — no runtime prompt, just
+        # an abort. Was killing the app on any scan/import attempt.
+        NSCameraUsageDescription: "Olea uses the camera to scan documents."
+        NSPhotoLibraryUsageDescription: "Olea can import images from your photo library."
+        NSPhotoLibraryAddUsageDescription: "Olea saves exported PDFs and QR codes to your photo library when you tap Save."
+        NSDocumentsFolderUsageDescription: "Olea needs access to your documents to import and manage files."
+        NSLocationWhenInUseUsageDescription: "Olea uses your location to automatically tag documents with where they were scanned or imported."
+        NSContactsUsageDescription: "Olea matches contact information found in your documents against your address book so you can quickly link documents to the right person."
+        NSSpeechRecognitionUsageDescription: "Olea transcribes your voice notes on device using Speech Recognition — the audio never leaves your iPhone."
+        NSMicrophoneUsageDescription: "Olea uses the microphone to record voice notes that it transcribes into searchable text."
+        NSFaceIDUsageDescription: "Olea uses Face ID to unlock your secure vault."
         LSSupportsOpeningDocumentsInPlace: true
         UISupportsDocumentBrowser: true
         # Register olea:// and docsage:// URL schemes so iOS routes

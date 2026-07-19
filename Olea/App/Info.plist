@@ -74,6 +74,24 @@
 		<key>NSAllowsArbitraryLoadsInWebContent</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Olea uses the camera to scan documents.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Olea matches contact information found in your documents against your address book so you can quickly link documents to the right person.</string>
+	<key>NSDocumentsFolderUsageDescription</key>
+	<string>Olea needs access to your documents to import and manage files.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Olea uses Face ID to unlock your secure vault.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Olea uses your location to automatically tag documents with where they were scanned or imported.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Olea uses the microphone to record voice notes that it transcribes into searchable text.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Olea saves exported PDFs and QR codes to your photo library when you tap Save.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Olea can import images from your photo library.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Olea transcribes your voice notes on device using Speech Recognition — the audio never leaves your iPhone.</string>
 	<key>NSSupportsLiveActivities</key>
 	<true/>
 	<key>NSSupportsLiveActivitiesFrequentUpdates</key>
